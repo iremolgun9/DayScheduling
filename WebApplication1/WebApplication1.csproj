@@ -311,6 +311,20 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DayScheduling.BLL\DayScheduling.BLL.csproj">
+      <Project>{05841c63-6cdf-46e1-b0fe-f5eba332fb8b}</Project>
+      <Name>DayScheduling.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DayScheduling.Data\DayScheduling.Data.csproj">
+      <Project>{2ad00308-b9a8-4e1c-ad92-45d86314be2c}</Project>
+      <Name>DayScheduling.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DayScheduling.Entities\DayScheduling.Entities.csproj">
+      <Project>{3ad91859-989e-489e-b6f8-fd94909288c8}</Project>
+      <Name>DayScheduling.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

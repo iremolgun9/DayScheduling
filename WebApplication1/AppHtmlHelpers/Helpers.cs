@@ -60,9 +60,9 @@ namespace WebApplication1.AppHtmlHelpers
             divStartTime.AddCssClass("start-time time");
 
             divEndTime.AddCssClass("end-time time");
-            divEndTime.InnerHtml = "11.30am";
+            divEndTime.InnerHtml = "11.30am"; //Activity Modelin FinishTime'ı gelecek
 
-            spanTime.InnerHtml = "10.00am";
+            spanTime.InnerHtml = "10.00am"; // Activity Modelin StartTime'ı gelecek
 
             divRightCol.AddCssClass("right-col");
 
@@ -81,7 +81,7 @@ namespace WebApplication1.AppHtmlHelpers
             divDetail.AddCssClass("detail");
 
             divNameAttLinkClickableText.AddCssClass("name attLink clickable-text");
-            divNameAttLinkClickableText.InnerHtml = "KordonBoyu";
+            divNameAttLinkClickableText.InnerHtml = "KordonBoyu"; //Activity Modelin Name'i gelecek.
 
             divReviewTagContainer.AddCssClass("review-tag-container");
 
@@ -90,28 +90,28 @@ namespace WebApplication1.AppHtmlHelpers
             divRatingStars.AddCssClass("rating-stars ");
 
             spanRatingStarsFill.AddCssClass("rating-stars-fill");
-            spanRatingStarsFill.Attributes.Add("style", "width:90.0%;");
+            spanRatingStarsFill.Attributes.Add("style", "width:90.0%;"); //ActivityModeldeki Placein Ratingi.
 
             spanTagsAttractions.AddCssClass("tags-attractions");
 
-            spanTagMustSeeTag.AddCssClass("tag must-see-tag");
+            spanTagMustSeeTag.AddCssClass("tag must-see-tag"); // Kaldırılabilir. Bakılacak.
             spanTagMustSeeTag.InnerHtml = "#Must See,";
 
             spanTag.AddCssClass("tag");
             spanTag.Attributes.Add("data-cat-id", "140");
-            spanTag.InnerHtml = "#Pier / BoardWalk";
+            spanTag.InnerHtml = "#Pier / BoardWalk"; // ActivityModelin içindeki Placein Kategorisi Gelecek.
 
             divDesc.AddCssClass("desc");
 
             blockquoteTrimDesc.AddCssClass("trim-desc");
             blockquoteTrimDesc.Attributes.Add("cite", "mekanbilgilendirmesi");//////
-            blockquoteTrimDesc.InnerHtml = "Known as one of the best parts of the city to dine, Kordonboyu also offers grassy areas, long jogging paths, and tranquility away from the bu";
+            blockquoteTrimDesc.InnerHtml = "Known as one of the best parts of the city to dine, Kordonboyu also offers grassy areas, long jogging paths, and tranquility away from the bu";//ActivityModelin Descp gelecek.
 
             divTours.AddCssClass("tours");
 
             aTourLinkTextLink.AddCssClass("tours-link text-link attLink jumper");
             aTourLinkTextLink.Attributes.Add("href", "mekanbilgilendirmesi");
-            aTourLinkTextLink.InnerHtml = "Tours from TL1,051";
+            aTourLinkTextLink.InnerHtml = "Tours from TL1,051"; //ActivityModelin Fiyatı Gelecek.
 
             aAttLinkHidden.AddCssClass("attLink hidden full-details-link text-link");
             aAttLinkHidden.Attributes.Add("href", "mekanbilgilendirmesi");

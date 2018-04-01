@@ -1,9 +1,12 @@
-﻿using System;
+﻿using DayScheduling.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication1.Models;
+using DayScheduling.BLL;
+using DayScheduling.Entities.Activity;
 
 namespace WebApplication1.Controllers
 {
@@ -11,12 +14,14 @@ namespace WebApplication1.Controllers
     {
         public ActionResult Index()
         {
-            Class1 c = new Class1(1,"KONAAK");
+            BLLActivity bll = new BLLActivity();
+            vmActivitiyEntities Model = bll.GetvmActivities();
+            Class1 c = new Class1(1, "sadas");
             c.Description = "BLA BLA DESCRIPTION";
             c.Cost = "1,051";
             c.StartTime = "10.30am";
             c.FinishTime = "11.30";
-            return View(c);
+            return View(Model);
         }
 
         public ActionResult MainPage()
