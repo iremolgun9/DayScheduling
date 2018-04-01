@@ -175,14 +175,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="BLL\PlaceBLLWithSP.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="DAL\DSData.cs">
-      <DependentUpon>DSData.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\DSData.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DSData.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -278,19 +270,6 @@
     <Content Include="fonts\Lato-italic.woff" />
     <Content Include="fonts\Lato-regular.ttf" />
     <Content Include="fonts\Lato-regular.woff" />
-    <Content Include="ClassDiagram1.cd" />
-    <Content Include="ClassDiagram2.cd" />
-    <Content Include="DAL\DSData.xsc">
-      <DependentUpon>DSData.xsd</DependentUpon>
-    </Content>
-    <None Include="DAL\DSData.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DSData.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="DAL\DSData.xss">
-      <DependentUpon>DSData.xsd</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -325,6 +304,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\DALUSER\" />
+    <Folder Include="DAL\" />
     <Folder Include="fonts\feathericons\" />
   </ItemGroup>
   <ItemGroup>
