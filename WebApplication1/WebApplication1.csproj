@@ -303,7 +303,6 @@
     <Content Include="Views\Home\SignUp.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\DALUSER\" />
     <Folder Include="DAL\" />
     <Folder Include="fonts\feathericons\" />
   </ItemGroup>
