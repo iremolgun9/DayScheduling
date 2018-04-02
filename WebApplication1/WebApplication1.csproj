@@ -292,12 +292,14 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\DayByDay.cshtml">
+      <BrowseToURL>~/Home/Index</BrowseToURL>
+    </Content>
     <Content Include="Views\Shared\_LayoutPDI.cshtml" />
     <Content Include="Views\Shared\_LayoutPlanDayByDay.cshtml" />
     <Content Include="Views\Home\LoginPage.cshtml" />
     <Content Include="Views\Home\myPlans.cshtml" />
-    <Content Include="Views\Home\MainPage.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\viewPlan.cshtml" />
     <Content Include="Views\Home\Places.cshtml" />
     <Content Include="Views\Home\SignUp.cshtml" />

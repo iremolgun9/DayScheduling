@@ -9,7 +9,7 @@ namespace WebApplication1.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult DayByDay()
         {
             Class1 c = new Class1(1,"KONAAK");
             c.Description = "BLA BLA DESCRIPTION";
@@ -19,7 +19,7 @@ namespace WebApplication1.Controllers
             return View(c);
         }
 
-        public ActionResult MainPage()
+        public ActionResult Index()
         {
             return View();
         }
