@@ -205,7 +205,7 @@
     <Content Include="js\home.js" />
     <Content Include="js\icons.js" />
     <Content Include="logo.png" />
-    <Content Include="photos\Izmir-resimleri-11.jpg" />
+    <None Include="photos\izmir" />
     <Content Include="res\images\assets\apple-touch-icon-57x57.png" />
     <Content Include="res\images\assets\apple-touch-icon-60x60.png" />
     <Content Include="res\images\assets\apple-touch-icon-72x72.png" />
@@ -215,6 +215,7 @@
     <Content Include="res\images\assets\favicon-32x32.png" />
     <Content Include="res\images\assets\favicon-96x96.png" />
     <Content Include="res\images\assets\favicon.ico" />
+    <Content Include="res\images\assets\izmir.jpg" />
     <Content Include="res\images\assets\sheet-13.png" />
     <Content Include="s.inspirock.com\3.2.1\res-ext\jquery\css\images\ui-icons_444444_256x240.png" />
     <Content Include="s.inspirock.com\3.2.1\res-ext\jquery\css\images\ui-icons_555555_256x240.png" />
@@ -236,14 +237,14 @@
     <Content Include="photos\saat-kulesi-clock-tower-352339852.jpg" />
     <Content Include="photos\ancient-city-of-ephesus--527100546.jpg" />
     <Content Include="photos\sirince-koyu-869957610.jpg" />
-    <Content Include="res2\images\defaults\neighborhoods.jpg" />
-    <Content Include="res2\images\defaults\sightseeing.jpg" />
+    <Content Include="s.inspirock.com\res2\images\defaults\neighborhoods.jpg" />
+    <Content Include="s.inspirock.com\res2\images\defaults\sightseeing.jpg" />
     <Content Include="photos\istanbul.jpg" />
     <Content Include="photos\turkey-goreme.jpg" />
-    <Content Include="res2\images\misc\ajax-loader.gif" />
-    <Content Include="res2\images\misc\bulb.gif" />
-    <Content Include="res2\images\misc\sea-horizon.jpg" />
-    <Content Include="res2\images\misc\spin.gif" />
+    <Content Include="s.inspirock.com\res2\images\misc\ajax-loader.gif" />
+    <Content Include="s.inspirock.com\res2\images\misc\bulb.gif" />
+    <Content Include="s.inspirock.com\res2\images\misc\sea-horizon.jpg" />
+    <Content Include="s.inspirock.com\res2\images\misc\spin.gif" />
     <Content Include="photos\transport\car.jpg" />
     <Content Include="photos\transport\flight.jpg" />
     <Content Include="photos\transport\train.jpg" />

@@ -100,8 +100,11 @@
                             <a href="/Home/MainPage" title="Day Scheduling Day Planner">
                                 <img src="~/img/logo.png" border=5 width=45 height=40>
                             </a>
-                            <span class="tagline">For planning your day!</span>
-                    </div>
+                            <span class="tagline">
+                                <font face="Berlin Sans FB" size="4" color="white">
+                                    For planning your day!
+                                </font>
+</div>
 
 
 
@@ -109,10 +112,10 @@
                     </nav>
                     <nav class="page-nav left">
                     </nav>
-                    <nav class="page-nav right">
+                    <nav class="page-nav left">
                         <ul>
                             <li id="headerstartplanning" class="headerstartplanning ">
-                                <button class="cta-button small">Start planning</button>
+                                <button class="cta-button small">  Start planning</button>
                             </li>
                             <li id="myPlans" data-dropdown-url="/myPlansDropdown" data-has-plans="false">
                                 <a rel="nofollow" href="/Home/myPlans">
@@ -141,7 +144,6 @@
                                     <span>Log in</span>
                                 </a>
                             </li>
-                            <li class="vertical-line"></li>
                             <li id="language" data-browser-lang-code="en"
                                 data-browser-lang-name="english" data-dropdown-url="/languageOptions"><span class="language-text">english</span><span class="dropdown"></span></li>
                             <li id="currency" data-dropdown-url="/currencyOptions">
@@ -149,9 +151,7 @@
                                     <span><span class="selected-currency">TL</span> <span class="dropdown"></span></span>
                                 </a>
                             </li>
-                            <li id="help-container">
-                                <a href="javascript:void(0)" class="help-tips notranslate">?</a>
-                            </li>
+                           
                         </ul>
                     </nav>
                 </div>
@@ -187,7 +187,7 @@
 
                         <button class="cta-button login large">Login</button>
                         <div class="options">
-                            <span>New User? &nbsp;<a href="javascript:void(0);" class="to-signup text-link">Sign Up</a></span>
+                            <span>New User? &nbsp;<a href="/Home/SignUp" class="to-signup text-link">Sign Up</a></span>
                         </div>
                         <div class="clear"></div>
                     </div>
@@ -233,7 +233,7 @@
                         <div class="header-help-container">
                             <div class="header-text">Password Reset</div>
                         </div>
-                        <div class="tagline soft">Enter your email address and we'll send you a link to reset your Inspirock password.</div>
+                        <div class="tagline soft">Enter your email address and we'll send you a link to reset your Day Scheduling password.</div>
                         <label>Email:</label>
                         <input name="email" type="text" class="flat" id="resetemail" />
                         <button class="cta-button reset large">Send Link</button>
@@ -253,12 +253,11 @@
         <footer class="page-footer">
             <div class="footer-content">
                 <div class="row">
-                    <div class="header-logo">
-                        <a href="/" title="For planning your day!">
-                            <a href="/Home/MainPage" title="Day Scheduling Day Planner">
-                                <img src="~/img/logo.png" border=5 width=160 height=100>
-                            </a>
-                            <span class="tagline">For planning your day!</span>
+                    <a href="/Home/MainPage" title="Day Scheduling Day Planner">
+                        <div style="text-align:center">
+                            <img src="~/img/logo.png" border=5 width=370 height=200>
+                        </div>
+                    </a>
                     </div>
                     <div class="col-6 menu-items">
                      
@@ -270,9 +269,7 @@
                         <div class="line"></div>
                     </div>
                     <ul class="footer-copyright clearfix">
-                        <li>
-                            <a href="/Home/Index">Day Scheduling</span></a>
-                        </li>
+                        
                        
                       
                     </ul>
