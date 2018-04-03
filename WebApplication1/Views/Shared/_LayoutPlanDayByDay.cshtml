@@ -1,4 +1,4 @@
-﻿@model WebApplication1.Models.Class1
+﻿@model DayScheduling.Entities.Activity.vmActivitiyEntities
 @using WebApplication1.AppHtmlHelpers;
 <!DOCTYPE html>
 <html lang="en" xmlns:og="http://opengraphprotocol.org/schema/">
@@ -1123,9 +1123,9 @@
                                                 <div class="left-col ">
                                                     <div class="visit-time">
                                                         <div class="start-time time ">
-                                                            <span>@Model.StartTime Civarı</span>
+                                                            <span>@Model.Activities[0].StartTime</span>
                                                         </div>
-                                                        <div class="end-time time">@Model.FinishTime Suları</div>
+                                                        <div class="end-time time">@Model.Activities[0].FinishTime</div>
                                                     </div>
                                                 </div>
                                                 <div class="right-col">
@@ -1139,7 +1139,7 @@
                                                               data-id="420888639"
                                                               data-img-path="konak-square--622289667.html">&copy;</span>
                                                     </div><div class="detail">
-                                                        <div class="name attLink clickable-text">@Model.PlaceName</div>
+                                                        <div class="name attLink clickable-text">@Model.Activities[0].ActivityPlaceName</div>
                                                         <div class="review-tag-container">
                                                             <span class="review">
                                                                 <div class="rating-stars ">
@@ -1155,10 +1155,10 @@
                                                         </div>
                                                         <div class="tours">
                                                             <a class="tours-link text-link attLink jumper" href="https://www.inspirock.com/turkey/izmir/konak-square-a420888639#Related">
-                                                                @Model.Cost
+                                                                @*Model.Cost*@
                                                             </a>
                                                             <div class="desc">
-                                                                <blockquote class="trim-desc"> @Model.Description ALFA EMO FALAN</blockquote>
+                                                                <blockquote class="trim-desc"> @*@Model.Description*@ ALFA EMO FALAN</blockquote>
                                                             </div>
                                                         </div>
                                                     </div>
