@@ -16,12 +16,13 @@ namespace WebApplication1.Controllers
         {
             BLLActivity bll = new BLLActivity();
             vmActivitiyEntities Model = bll.GetvmActivities();
-            Class1 c = new Class1(1, "sadas");
-            c.Description = "BLA BLA DESCRIPTION";
-            c.Cost = "1,051";
-            c.StartTime = "10.30am";
-            c.FinishTime = "11.30";
             return View(Model);
+        }
+        public ActionResult DeleteActivity()
+        {
+            BLLActivity bll = new BLLActivity();
+            bll.DeleteActivity(1010);
+            return RedirectToAction("Index");
         }
 
         public ActionResult Index()
