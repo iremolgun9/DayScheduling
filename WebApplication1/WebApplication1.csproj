@@ -187,6 +187,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="css\commoncss.css" />
     <Content Include="css\errorpage.css" />
@@ -195,7 +196,6 @@
     <Content Include="css\resultpage.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="img\logo.ico" />
     <Content Include="img\logo.png" />
     <Content Include="img\preform-inspirock-steps-1.png" />
@@ -292,12 +292,12 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\DayByDay.cshtml" />
     <Content Include="Views\Shared\_LayoutPDI.cshtml" />
     <Content Include="Views\Shared\_LayoutPlanDayByDay.cshtml" />
     <Content Include="Views\Home\LoginPage.cshtml" />
     <Content Include="Views\Home\myPlans.cshtml" />
-    <Content Include="Views\Home\MainPage.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\viewPlan.cshtml" />
     <Content Include="Views\Home\Places.cshtml" />
     <Content Include="Views\Home\SignUp.cshtml" />
