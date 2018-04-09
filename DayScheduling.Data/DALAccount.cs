@@ -18,7 +18,7 @@ namespace DayScheduling.Data
         }
         public void Add()
         {
-            //string query = @"";
+            string query = @"INSERT INTO USERS(userID,)";
             //Models.Database.ExecuteSqlCommand();
         }
     }

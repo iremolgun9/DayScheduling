@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,20 @@ namespace DayScheduling.Data
     public class DALPlace
     {
         DaySchedulingModelDataModels Models = new DaySchedulingModelDataModels();
+
+        public Place Get(int ID)
+        {
+            string query = @"SELECT * FROM Place P, WHERE P.PlaceID=@placeID"; //cilem.akcay@hotmail.com
+            var res = Models.Database.SqlQuery<Place>(query, new SqlParameter("@placeID", ID));
+            return res.FirstOrDefault();
+        }
+
+        public List<Place> GetList()
+        {
+            string query = @"SELECT * FROM Place";
+            var res = Models.Database.SqlQuery<Place>(query);
+            return res.ToList();
+        }
 
         public List<string> GetPlaceTypeFromPlaceID(int ID)
         {
