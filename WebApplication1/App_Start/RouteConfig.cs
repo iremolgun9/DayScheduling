@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using JsAction;
 
 namespace WebApplication1
 {
@@ -11,6 +12,13 @@ namespace WebApplication1
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+
+            //routes.MapRoute(
+            //    name: "isLoginSuccess",
+            //    url: "Home/isLoginSuccess/{email}/{pass}",
+            //    defaults: new { controller = "Home", action = "isLoginSuccess", email = "", pass = "" }
+            //    );
+
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(

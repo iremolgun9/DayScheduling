@@ -19,5 +19,6 @@ namespace DayScheduling.Entities.Activity
         public string ActivityPlaceRating { get; set; }
         public string ActivityPlaceCategory { get; set; }
         public string ActivityPrice { get; set; }
+        public string ActivityPlaceDescrp { get; set; }
     }
 }

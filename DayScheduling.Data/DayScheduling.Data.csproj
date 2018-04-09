@@ -53,7 +53,9 @@
   <ItemGroup>
     <Compile Include="Account.cs" />
     <Compile Include="Activity.cs" />
+    <Compile Include="DALAccount.cs" />
     <Compile Include="DALActivity.cs" />
+    <Compile Include="DALPlace.cs" />
     <Compile Include="DaySchedulingModelDataModels.cs" />
     <Compile Include="Place.cs" />
     <Compile Include="PlaceOwner.cs" />
