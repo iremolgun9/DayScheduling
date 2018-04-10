@@ -9,7 +9,7 @@ namespace WebApplication1.AppHtmlHelpers
 {
     public static class Helpers
     {    
-        public static MvcHtmlString ItinenaryItem()
+        public static MvcHtmlString ItinenaryItem(string PlaceName,string PlaceCategory, string PlaceRating, string PlacePrice, DateTime StartTime, DateTime FinishTime, string PlaceDescp)
         {
             TagBuilder tb = new TagBuilder("div");
             TagBuilder divLeftCol = new TagBuilder("div");
@@ -60,9 +60,9 @@ namespace WebApplication1.AppHtmlHelpers
             divStartTime.AddCssClass("start-time time");
 
             divEndTime.AddCssClass("end-time time");
-            divEndTime.InnerHtml = "11.30am"; //Activity Modelin FinishTime'ı gelecek
+            divEndTime.InnerHtml = FinishTime.ToString(); //Activity Modelin FinishTime'ı gelecek ++++
 
-            spanTime.InnerHtml = "10.00am"; // Activity Modelin StartTime'ı gelecek
+            spanTime.InnerHtml = StartTime.ToString(); // Activity Modelin StartTime'ı gelecek ++++
 
             divRightCol.AddCssClass("right-col");
 
@@ -81,7 +81,7 @@ namespace WebApplication1.AppHtmlHelpers
             divDetail.AddCssClass("detail");
 
             divNameAttLinkClickableText.AddCssClass("name attLink clickable-text");
-            divNameAttLinkClickableText.InnerHtml = "KordonBoyu"; //Activity Modelin Name'i gelecek.
+            divNameAttLinkClickableText.InnerHtml = PlaceName; //Activity Modelin Name'i gelecek. ++++
 
             divReviewTagContainer.AddCssClass("review-tag-container");
 
@@ -90,7 +90,7 @@ namespace WebApplication1.AppHtmlHelpers
             divRatingStars.AddCssClass("rating-stars ");
 
             spanRatingStarsFill.AddCssClass("rating-stars-fill");
-            spanRatingStarsFill.Attributes.Add("style", "width:90.0%;"); //ActivityModeldeki Placein Ratingi.
+            spanRatingStarsFill.Attributes.Add("style", PlaceRating); //ActivityModeldeki Placein Ratingi. ++++
 
             spanTagsAttractions.AddCssClass("tags-attractions");
 
@@ -99,19 +99,19 @@ namespace WebApplication1.AppHtmlHelpers
 
             spanTag.AddCssClass("tag");
             spanTag.Attributes.Add("data-cat-id", "140");
-            spanTag.InnerHtml = "#Pier / BoardWalk"; // ActivityModelin içindeki Placein Kategorisi Gelecek.
+            spanTag.InnerHtml = PlaceCategory; // ActivityModelin içindeki Placein Kategorisi Gelecek. +++++
 
             divDesc.AddCssClass("desc");
 
             blockquoteTrimDesc.AddCssClass("trim-desc");
             blockquoteTrimDesc.Attributes.Add("cite", "mekanbilgilendirmesi");//////
-            blockquoteTrimDesc.InnerHtml = "Known as one of the best parts of the city to dine, Kordonboyu also offers grassy areas, long jogging paths, and tranquility away from the bu";//ActivityModelin Descp gelecek.
+            blockquoteTrimDesc.InnerHtml = PlaceDescp;//ActivityModelin Descp gelecek. ++++
 
             divTours.AddCssClass("tours");
 
             aTourLinkTextLink.AddCssClass("tours-link text-link attLink jumper");
             aTourLinkTextLink.Attributes.Add("href", "mekanbilgilendirmesi");
-            aTourLinkTextLink.InnerHtml = "Tours from TL1,051"; //ActivityModelin Fiyatı Gelecek.
+            aTourLinkTextLink.InnerHtml = "Tours from" + PlacePrice; //ActivityModelin Fiyatı Gelecek. ++++
 
             aAttLinkHidden.AddCssClass("attLink hidden full-details-link text-link");
             aAttLinkHidden.Attributes.Add("href", "mekanbilgilendirmesi");

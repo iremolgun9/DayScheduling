@@ -27,6 +27,10 @@ namespace DayScheduling.Data
 
         public int PlaceRate { get; set; }
 
+        public int PlacePrice { get; set; }
+
+        public string PlaceDescription { get; set; }
+
         public virtual PlaceType PlaceType { get; set; }
     }
 }
