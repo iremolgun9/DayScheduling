@@ -351,6 +351,7 @@
     <Content Include="Views\Home\Places.cshtml" />
     <Content Include="Views\Home\SignUp.cshtml" />
     <Content Include="Views\Home\UserPage.cshtml" />
+    <Content Include="Views\Home\PlaceDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DAL\" />
