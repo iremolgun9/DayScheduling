@@ -1025,10 +1025,7 @@
                                 </div>
                                 <ul class="subnav-actions">
                                     <li>
-                                        <button type="button" class="add-item cta-button large">+ Add</button>
-                                    </li>
-                                    <li>
-                                        <button type="button" class="add-item cta-button large" onclick="location.href='@Url.Action("DeleteActivity","Home")'">-Delete</button>
+                                        <button type="button" class="cta-button large Add" data-event-src="Add">Add</button>
                                     </li>
                                 </ul>
                             </div>
@@ -1147,6 +1144,8 @@
                                                             <div class="desc">
                                                                 <blockquote class="trim-desc"> @*@Model.Description*@ ALFA EMO FALAN</blockquote>
                                                             </div>
+                                                            <button type="button" class="cta-button large Delete" data-event-src="Delete">Delete</button>
+                                                            <button type="button" class="cta-button large Update" data-event-src="Update">Update</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1211,6 +1210,8 @@
                                                                 View full attraction details
                                                             </a>
                                                         </div>
+                                                              <button type="button" class="cta-button large Delete" data-event-src="Delete">Delete</button>
+                                                              <button type="button" class="cta-button large Update" data-event-src="Update">Update</button>
                                                     </div>
                                                 </div>
                                                 <div class="clear"></div>
@@ -1276,6 +1277,8 @@
                                                                 View full attraction details
                                                             </a>
                                                         </div>
+                                                              <button type="button" class="cta-button large Delete" data-event-src="Delete">Delete</button>
+                                                              <button type="button" class="cta-button large Update" data-event-src="Update">Update</button>
                                                     </div>
                                                 </div>
                                                 <div class="clear"></div>
@@ -1343,6 +1346,8 @@
                                                                 View full attraction details
                                                             </a>
                                                         </div>
+                                                              <button type="button" class="cta-button large Delete" data-event-src="Delete">Delete</button>
+                                                              <button type="button" class="cta-button large Update" data-event-src="Update">Update</button>
                                                     </div>
                                                 </div>
                                                 <div class="clear"></div>
@@ -1410,6 +1415,8 @@
                                                                 View full attraction details
                                                             </a>
                                                         </div>
+                                                              <button type="button" class="cta-button large Delete" data-event-src="Delete">Delete</button>
+                                                              <button type="button" class="cta-button large Update" data-event-src="Update">Update</button>
                                                     </div>
                                                 </div>
                                                 <div class="clear"></div>
@@ -1433,6 +1440,7 @@
                                              data-destination-id="311325597"
                                              data-upsell="HOTEL">
                                             <div class="left-col"></div>
+
                                             <div class="right-col">
                                                 <div class="upsell"                                                     </div>
                                                 </div>
@@ -1468,7 +1476,7 @@
                                              data-details-url="/trip/a2f6de2f7-eef8-4914-a130-4bc3380476d4/turkey/izmir/izmir-wild-life-park-a8146297227"
                                              data-event-src="visit-row"
                                              data-has-notes="false">
-                                            <div class="visit-contents clearfix">
+                                             <div class="visit-contents clearfix">
                                                 <div class="left-col ">
                                                     <div class="visit-time">
                                                         <div class="start-time time ">
@@ -1507,6 +1515,8 @@
                                                                 View full attraction details
                                                             </a>
                                                         </div>
+                                                              <button type="button" class="cta-button large Delete" data-event-src="Delete">Delete</button>
+                                                              <button type="button" class="cta-button large Update" data-event-src="Update">Update</button>
                                                     </div>
                                                 </div>
                                                 <div class="clear"></div>
@@ -1574,6 +1584,8 @@
                                                                 View full attraction details
                                                             </a>
                                                         </div>
+                                                              <button type="button" class="cta-button large Delete" data-event-src="Delete">Delete</button>
+                                                              <button type="button" class="cta-button large Update" data-event-src="Update">Update</button>
                                                     </div>
                                                 </div>
                                                 <div class="clear"></div>
@@ -1598,6 +1610,7 @@
                                              data-details-url="/trip/a2f6de2f7-eef8-4914-a130-4bc3380476d4/turkey/izmir/agora-open-air-museum-a2138163175"
                                              data-event-src="visit-row"
                                              data-has-notes="false">
+                                            
                                             <div class="visit-contents clearfix">
                                                 <div class="left-col ">
                                                     <div class="visit-time">
@@ -1640,6 +1653,8 @@
                                                                 View full attraction details
                                                             </a>
                                                         </div>
+                                                              <button type="button" class="cta-button large Delete" data-event-src="Delete">Delete</button>
+                                                              <button type="button" class="cta-button large Update" data-event-src="Update">Update</button>
                                                     </div>
                                                 </div>
                                                 <div class="clear"></div>
@@ -1662,6 +1677,7 @@
                                              data-details-url="/trip/a2f6de2f7-eef8-4914-a130-4bc3380476d4/turkey/izmir/konak-square-a420888639"
                                              data-event-src="visit-row"
                                              data-has-notes="false">
+                                            
                                             <div class="visit-contents clearfix">
                                                 <div class="left-col ">
                                                     <div class="visit-time">
@@ -1704,11 +1720,14 @@
                                                                 View full attraction details
                                                             </a>
                                                         </div>
+                                                              <button type="button" class="cta-button large Delete" data-event-src="Delete">Delete</button>
+                                                              <button type="button" class="cta-button large Update" data-event-src="Update">Update</button>
                                                     </div>
                                                 </div>
                                                 <div class="clear"></div>
                                             </div>
                                         </div>
+
                                         @Helpers.ItineraryRow()
                                         @Helpers.ItinenaryItem(Model.Activities[0].ActivityPlaceName, Model.Activities[0].ActivityPlaceCategory, Model.Activities[0].ActivityPlaceRating, Model.Activities[0].ActivityPrice,
                                                                 Model.Activities[0].StartTime, Model.Activities[0].FinishTime, Model.Activities[0].ActivityPlaceDescrp)
@@ -2007,14 +2026,17 @@
         <footer class="page-footer">
             <div class="footer-content">
                 <div class="row">
-                    <div class="col-3 header-logo">
-                        <a href="https://www.inspirock.com/">
-                            <img src="~/img/logo.png" border=5 width=160 height=100>
+                    <a href="/Home/MainPage" title="Day Scheduling Day Planner">
+                        <div style="text-align:center">
+                            <img src="~/img/logo.png" border=5 width=370 height=200>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 menu-items">
 
-                            <span class="tm"> &reg;</span>
-                        </a>
-                        <div class="tagline">For planning your day!</div>
-                    </div>
+
+                </div>
+            </div>
                     <div class="col-6 menu-items">                                        
                     </div>                         
 
