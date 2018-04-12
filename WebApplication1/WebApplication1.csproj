@@ -246,6 +246,7 @@
     <Content Include="js\icons.js" />
     <Content Include="logo.png" />
     <None Include="photos\izmir" />
+    <Content Include="img\efes.jpg" />
     <Content Include="res\images\assets\apple-touch-icon-57x57.png" />
     <Content Include="res\images\assets\apple-touch-icon-60x60.png" />
     <Content Include="res\images\assets\apple-touch-icon-72x72.png" />
@@ -263,6 +264,8 @@
     <Content Include="s.inspirock.com\3.2.1\res-ext\jquery\css\images\ui-icons_777777_256x240.png" />
     <Content Include="s.inspirock.com\3.2.1\res-ext\jquery\css\images\ui-icons_cc0000_256x240.png" />
     <Content Include="s.inspirock.com\3.2.1\res-ext\jquery\css\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="s.inspirock.com\3.2.1\res\images\assets\alaçatı.png" />
+    <Content Include="s.inspirock.com\3.2.1\res\images\assets\efes.png" />
     <Content Include="s.inspirock.com\3.2.1\res\images\preform-inspirock-steps-1.png" />
     <Content Include="s.inspirock.com\3.2.1\res\images\assets\sheet-13.png" />
     <Content Include="s.inspirock.com\3.2.1\res\images\travel-agent.png" />
