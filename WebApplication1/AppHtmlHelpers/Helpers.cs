@@ -189,6 +189,24 @@ namespace WebApplication1.AppHtmlHelpers
         //                                        <a class="directions text-link" rel="nofollow noopener" href="http://maps.google.com/maps?saddr=38.4106,27.16165&amp;daddr=38.435547,27.139322" target="_blank">Get details &raquo;</a>
         //                                    </div>
         //                                </div>
+        public static MvcHtmlString Radio(string id,string cssClass,string value)
+        {
+            TagBuilder inputRadio = new TagBuilder("input");
+            
+            inputRadio.Attributes.Add("type", "radio");
+            inputRadio.AddCssClass(cssClass);
+            inputRadio.Attributes.Add("id", id);
+            inputRadio.Attributes.Add("name", "style");
+            inputRadio.Attributes.Add("values",value);
+            return MvcHtmlString.Create(inputRadio.ToString(TagRenderMode.Normal));
+        }
+        public static MvcHtmlString Label(string labelTitle)
+        {
+            TagBuilder label = new TagBuilder("label");
+            label.Attributes.Add("title", labelTitle);
+            label.InnerHtml = labelTitle;
+            return MvcHtmlString.Create(label.ToString(TagRenderMode.Normal));
+        }
 
         private static TagBuilder combineTags(TagBuilder t1,TagBuilder t2)
         {

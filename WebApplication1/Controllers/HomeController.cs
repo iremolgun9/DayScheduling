@@ -11,6 +11,7 @@ using JsAction;
 
 namespace WebApplication1.Controllers
 {
+
     public class HomeController : Controller
     {
         BLLActivity bllAct = new BLLActivity();
@@ -18,12 +19,19 @@ namespace WebApplication1.Controllers
 
         public ActionResult Index()
         {
+            if (Session["Account"] == null)// Siteye İlk girişte Index sayfasında sessionı açıp değerii sıfır yapıyoruz yani logout durumda.
+            {
+                Session.Add("Account", "0");
+            }
+            //else
+            //{.
+            //    Session["Account"] = "0";
+            //}
             return View();
         }
-
+        [DSAuthorize]
         public ActionResult DayByDay()
         {
-            
             vmActivitiyEntities Model = bllAct.GetvmActivities();
             return View(Model);
         }
@@ -39,36 +47,7 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
-
-        public ActionResult LoginPage()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult isLoginSuccess(string NameOrEmail, string password)
-        {
-            var resSuccess = new { Success = "True", Message = "", TargetUrl = Url.Action("DayByDay","Home")};
-            var resFail = new { Success = "False", Message = "Invalid email or password", TargetUrl = "" };
-            if (bllAcc.LoginIsSuccess(NameOrEmail, password))
-            {
-                return Json(resSuccess,JsonRequestBehavior.AllowGet);
-            }
-            
-            return Json(resFail,JsonRequestBehavior.AllowGet);   
-        }
-
-        [HttpPost]
-        public ActionResult isSignUpSuccess(string UserSurname, string UserName, string Gender, DateTime DOB, string Email, string Phone, string Address, string Job, string Password, string AccountType)
-        {
-            var resSuccess = new {Success = "True", Message="ACCOUNT IS ADDED.", TargetUrl = Url.Action("DayByDay","Home")};//userpage
-            var resFail = new { Success = "False", Message = "EMAIL IS ALREADY TAKEN.", TargetUrl =""};
-            if(bllAcc.AddAccountUser(UserSurname,UserName,Gender,DOB,Email,Phone,Address,Job,Password,AccountType)==2)
-            {
-                return Json(resSuccess, JsonRequestBehavior.AllowGet);
-            }
-            return Json(resFail, JsonRequestBehavior.AllowGet);
-        }
-
+        [Authorize]
         public ActionResult myPlans()
         {
             return View();
@@ -78,10 +57,6 @@ namespace WebApplication1.Controllers
                 return View();
             }
             public ActionResult Places()
-        {
-            return View();
-        }
-        public ActionResult SignUp()
         {
             return View();
         }

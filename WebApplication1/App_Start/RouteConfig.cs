@@ -13,11 +13,35 @@ namespace WebApplication1
         public static void RegisterRoutes(RouteCollection routes)
         {
 
-            //routes.MapRoute(
-            //    name: "isLoginSuccess",
-            //    url: "Home/isLoginSuccess/{email}/{pass}",
-            //    defaults: new { controller = "Home", action = "isLoginSuccess", email = "", pass = "" }
-            //    );
+            routes.MapRoute(
+                name: "isLoginSuccess",
+                url: "Account/isLoginSuccess",
+                defaults: new { controller = "Account", action = "isLoginSuccess"}
+                );
+
+            routes.MapRoute(
+                name: "LoginPage",
+                url: "Account/LoginPage",
+                defaults: new { controller = "Account", action = "LoginPage" }
+                );
+
+            routes.MapRoute(
+                name: "isSignUpSuccess",
+                url: "Account/isSignUpSuccess",
+                defaults: new { controller = "Account", action = "isSignUpSuccess" }
+                );
+
+            routes.MapRoute(
+                name: "SignUp",
+                url: "Account/SignUp",
+                defaults: new { controller = "Account", action = "SignUp" }
+                );
+
+            routes.MapRoute(
+                name: "PlanCriterias",
+                url: "Plan/PlanCriterias",
+                defaults: new { controller = "Plan", action = "PlanCriterias" }
+                );
 
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
@@ -26,6 +50,7 @@ namespace WebApplication1
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
         }
     }
 }

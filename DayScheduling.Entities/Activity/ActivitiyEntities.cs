@@ -21,4 +21,15 @@ namespace DayScheduling.Entities.Activity
         public string ActivityPrice { get; set; }
         public string ActivityPlaceDescrp { get; set; }
     }
+    public class pmPlanCriteria
+    {
+        public string PlaceAdress { get; set; }
+        public DateTime PlanBeginTime { get; set; }
+        public DateTime PlanEndTime { get; set; }
+        public string NumberOfFriends { get; set; }
+        public string BudgetInfo { get; set; }
+        public string style { get; set; }
+        public string pace { get; set; }
+        public List<string> categoryGroupNames { get; set; }
+    }
 }
