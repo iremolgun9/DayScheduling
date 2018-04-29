@@ -1,4 +1,4 @@
-﻿@model DayScheduling.Entities.Activity.vmActivitiyEntities
+﻿@model DayScheduling.Entities.Plan.vmDayByDayPlan
 @using WebApplication1.AppHtmlHelpers;
 <!DOCTYPE html>
 <html lang="en" xmlns:og="http://opengraphprotocol.org/schema/">
@@ -126,7 +126,7 @@
                                 </a>
                             </li>
                             <li id="userOptions" class="hidden">
-                                <a rel="nofollow" href="~/Home/DayByDay">
+                                <a rel="nofollow" href="~/Plan/DayByDay">
                                     <span class="name">Profile</span>
                                 </a>
                                 <div class="hidden">
@@ -151,7 +151,7 @@
                             <li id="language" data-browser-lang-code="en"
                                 data-browser-lang-name="english" data-dropdown-url="/languageOptions"><span class="language-text">english</span><span class="dropdown"></span></li>
                             <li id="currency" data-dropdown-url="/currencyOptions">
-                                <a rel="nofollow" href="/Home/DayByDay">
+                                <a rel="nofollow" href="/Plan/DayByDay">
                                     <span><span class="selected-currency">TL</span> <span class="dropdown"></span></span>
                                 </a>
                             </li>
@@ -173,7 +173,7 @@
                             <div class="itinerary-subnav-bg"></div>
                             <div class="itinerary-subnav-contents subnav-pane clearfix">
                                 <div class="subnav-tabs ">
-                                    <div class="selectview" title="2 days in Izmir Itinerary">2 days in Bornova Itinerary</div>
+                                    <div class="selectview" title="2 days in Izmir Itinerary">Your daily plan in @Model.Province</div>
                                     <div id="daybydaylink" class="subnavlink active" data-target="daybyday" data-url="/trip/2-days-in-izmir-itinerary-with-culture-a2f6de2f7-eef8-4914-a130-4bc3380476d4/itinerary/list">
                                         <span class="title">Timeline</span>
                                     </div>
@@ -251,72 +251,6 @@
                                                
                                             </div>
                                         
-                                        </div>
-                                           <div class="itinerary-row visit-row data-holder "
-                                             id="itinerary-item-3"
-                                             data-visit-id="3"
-                                             data-id="3"
-                                             data-stay-id="1"
-                                             data-name="Konak Square"
-                                             data-duration="90"
-                                             data-attraction-id="420888639"
-                                             data-destination-id="311325597"
-                                             data-details-url="/trip/a2f6de2f7-eef8-4914-a130-4bc3380476d4/turkey/izmir/konak-square-a420888639"
-                                             data-event-src="visit-row"
-                                             data-has-notes="false">
-                                            <div class="visit-contents clearfix">
-                                                <div class="left-col ">
-                                                    <div class="visit-time">
-                                                        <div class="start-time time ">
-                                                            <span>@Model.Activities[0].StartTime</span>
-                                                        </div>
-                                                        <div class="end-time time">@Model.Activities[0].FinishTime</div>
-                                                    </div>
-                                                </div>
-                                                <div class="right-col">
-                                                    <div class="visit-row-medium">
-                                                        <div class="photo clickable-image attLink"
-                                                             style="background-image: url('../../photos/konak-square--622289667.jpg')"
-                                                             data-link="/turkey/izmir/konak-square-a420888639">
-                                                        </div>
-                                                        <span class="copyright-fancy-box-div copyright"
-                                                              data-type="attraction"
-                                                              data-id="420888639"
-                                                              data-img-path="konak-square--622289667.html">&copy;</span>
-                                                    </div><div class="detail">
-                                                        <div class="name attLink clickable-text">@Model.Activities[0].ActivityPlaceName</div>
-                                                        <div class="review-tag-container">
-                                                            <span class="review">
-                                                                <div class="rating-stars ">
-                                                                    <span class="rating-stars-fill" style="width:76.0%;"></span>
-                                                                </div>
-                                                            </span>
-                                                            <span class="tags-attractions">
-                                                                <span class="tag" data-cat-id="208">#Landmark</span>
-                                                            </span>
-                                                        </div>
-                                                        <div class="desc">
-                                                            <blockquote class="trim-desc" data-more-link="/trip/a2f6de2f7-eef8-4914-a130-4bc3380476d4/turkey/izmir/konak-square-a420888639" cite="https://www.inspirock.com/turkey/izmir/konak-square-a420888639"></blockquote>
-                                                        </div>
-                                                        <div class="tours">
-                                                            <a class="tours-link text-link attLink jumper" href="https://www.inspirock.com/turkey/izmir/konak-square-a420888639#Related">
-                                                                @*Model.Cost*@
-                                                            </a>
-                                                            <div class="desc">
-                                                                <blockquote class="trim-desc"> @*@Model.Description*@ ALFA EMO FALAN</blockquote>
-                                                            </div>
-                                                            <button type="button" class="cta-button large Delete" data-event-src="Delete">Delete</button>
-                                                            <button type="button" class="cta-button large Update" data-event-src="Update">Update</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="clear"></div>
-                                            </div>
-                                        </div>
-                                        <div class="itinerary-row hop-row    no-time" data-stay-id="1">
-                                            <div class="left-col"></div>
-                                            <div class="right-col">
-                                            </div>
                                         </div>
                                         <div class="itinerary-row visit-row data-holder "
                                              id="itinerary-item-5"
@@ -888,10 +822,12 @@
                                                 <div class="clear"></div>
                                             </div>
                                         </div>
-
-                                        @Helpers.ItineraryRow()
-                                        @Helpers.ItinenaryItem(Model.Activities[0].ActivityPlaceName, Model.Activities[0].ActivityPlaceCategory, Model.Activities[0].ActivityPlaceRating, Model.Activities[0].ActivityPrice,
-                                                                Model.Activities[0].StartTime, Model.Activities[0].FinishTime, Model.Activities[0].ActivityPlaceDescrp)
+                                        @foreach (var item in Model.Plan)
+                                        {
+                                            @Helpers.ItineraryRow(item.SourceLat, item.SourceLong, item.DestLat, item.DestLong,item.DirectionDuration);
+                                            @Helpers.ItinenaryItem(item.place.PlaceID,item.place.PlaceName, item.place.PlaceRate, item.place.PlacePrice.ToString(),
+                                                                item.StartTime, item.FinishTime, item.place.PlaceDescription);
+                                        }
                                     </div>
                                 </div>
                             </div>
@@ -1132,7 +1068,7 @@
                             <div class="dest-rail" data-destination-id="311325597">
                                 <div class="see-also">See also for Izmir:</div>
                                 <ul>
-                                    <li><a href="https://www.viator.com/izmir-tours/b/d582-g12-c5330?eap=inspirock-a933aad43ba14e9096af1d41e7431180-17895&amp;aid=vba17895en" rel="nofollow" target="_blank"><span class="tour-title">City tours</span>&nbsp;<span class="text-link">from TL393 &raquo;</span></a></li>
+                                    <li><a href="~/photos/@Model.Province" rel="nofollow" target="_blank"><span class="tour-title">City tours</span>&nbsp;<span class="text-link">from TL393 &raquo;</span></a></li>
                                     <li><a href="https://www.viator.com/izmir-tours/b/d581-g20-c85?eap=inspirock-a933aad43ba14e9096af1d41e7431180-17895&amp;aid=vba17895en" rel="nofollow" target="_blank"><span class="tour-title">Multi-day & Extended tours</span>&nbsp;<span class="text-link">from TL382 &raquo;</span></a></li>
                                     <li><a href="https://www.viator.com/tours/Izmir/Ephesus-and-St-Marys-House-Day-Trip-from-Izmir/d581-3795IZM02?eap=inspirock-a933aad43ba14e9096af1d41e7431180-17895&amp;aid=vba17895en" rel="nofollow" target="_blank"><span class="tour-title">Ephesus and St. Mary's House Day Trip from Izmir</span>&nbsp;<span class="text-link">TL303 &raquo;</span></a></li>
                                 </ul>
@@ -1229,7 +1165,8 @@
 
 
             var gclid = getParam('gclid');
-            if(gclid){
+            if (gclid) {
+                debugger;
                 var gclsrc = getParam('gclsrc');
                 if(!gclsrc || gclsrc.indexOf('aw') !== -1){
                     setCookie('gclid', gclid, 90);

@@ -1,7 +1,9 @@
 ﻿@{
     ViewBag.Title = "Plan Criterias";
 }
+@model DayScheduling.Entities.Plan.vmPlanCriteria
 @using WebApplication1.AppHtmlHelpers;
+@using System.Web.Mvc;
 <!DOCTYPE html>
 <html lang="en" xmlns:og="http://opengraphprotocol.org/schema/">
 <head>
@@ -65,6 +67,26 @@
 @@font-face {font-family: 'Lato'; font-weight: 700; font-style: normal; src: local('Lato Bold'), local('Lato-700'), url('../../fonts/Lato-700.woff2') format('woff2'), url('../../fonts/Lato-700.woff') format('woff'), url('../../fonts/Lato-700.ttf') format('truetype');}
 @@font-face {font-family: 'Lato'; font-weight: 700; font-style: italic; src: local('Lato Bold Italic'), local('Lato-700italic'), url('../../fonts/Lato-700italic.woff2') format('woff2'), url('../../fonts/Lato-700italic.woff') format('woff'), url('../../fonts/Lato-700italic.ttf') format('truetype');}
 @@font-face {font-family: 'Lato'; font-weight: 900; font-style: normal; src: local('Lato Black'), local('Lato-900'), url('../../fonts/Lato-900.woff2') format('woff2'), url('../../fonts/Lato-900.woff') format('woff'), url('../../fonts/Lato-900.ttf') format('truetype');}
+    </style>
+    <style>
+    .mydropdownlist1
+    {
+    color: #a5cc0f;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 5px 12px;
+    background-color: #999;
+    font-weight: bold;
+    }
+    .mydropdownlist
+    {
+    color: #a5cc0f;
+    font-size: 20px;
+    padding: 5px 38px;
+    border-radius: 5px 12px;
+    background-color: #999;
+    font-weight: bold;
+    }
     </style>
     <link rel="stylesheet" type="text/css" href='~/css/commoncss.css'>
     <link rel="stylesheet" type="text/css" href='~/css/newplan.css'>
@@ -145,7 +167,7 @@
                 <img class="hero-image-polaroids lazyload"
                      data-url="../../photos/polaroids.png" />
                 <div id="shade" class="shade"></div>
-                @using (Html.BeginForm("DetermineActivity", "Plan", FormMethod.Post, new { id = "newPlanForm", @class = "planning-form expanded", autocomplete = "off" }))
+                @using (Html.BeginForm("DayByDay", "Plan", FormMethod.Post, new { id = "newPlanForm", @class = "planning-form expanded", autocomplete = "off" }))
                 {
                     <div class="steps">
                         <div class="title " title="">
@@ -154,17 +176,13 @@
                         <div class="dests">
                             <div class="destinations ui-front">
                                 <div class="destination">
-                                    <div class="tip" data-show-text="With Inspirock you can plan a vacation to any city, region, or country in the world."><span class="fa fa-question"></span></div>
-                                    @Html.TextArea("PlaceAdress", new { @class = "domain flat ui-autocomplete-input", placeholder = "Enter destination (Country, Region, or City)" })
+                                    @Html.DropDownList("ProvinceId",EnumHelper.GetSelectList(typeof(DayScheduling.Entities.Plan.Provinces)),"Select Province",new {@class= "mydropdownlist" })
                                 </div>
                             </div>
-                            <span class="text-link add-destination">+ Add destination</span>
                         </div>
                         <div class="dates clearfix">
-                            @Html.TextBox("PlanBeginTime", "",new { @class="flat", placeholder = "Begin Date Time" })
-                            <br/><br/>
-                            @Html.TextBox("PlanEndTime", "", new { @class = "flat", placeholder = "End Date Time" })
-                            <br/><br/>
+                            @*@Html.TextBox("PlanBeginTime", "",new { @class="flat", placeholder = "Begin Date Time" })
+                            @Html.TextBox("PlanEndTime", "", new { @class = "flat", placeholder = "End Date Time" })*@
                             @Html.TextBox("BudgetInfo","", new { @class = "flat", placeholder = "Budget" })
                             <br/><br/>
                             @Html.TextBox("NumberOfFriends", "", new { @class = "flat", placeholder = "Number Of Friends" })
@@ -172,26 +190,30 @@
                         <div class="section-title more-options-btn expandable">Activities<span class="optional"> (optional)</span></div>
                         <div class="step-content">
                             <div class="style clearfix">
-                                <div class="column3"><input type="radio" id="newplan-stylePopular" class="stylePopular flat" name="style" value="Popular" checked /><label title="Popular" for="newplan-stylePopular">Popular</label></div>
-                                <div class="column3"><input type="radio" id="newplan-styleBalanced" class="styleBlanaced flat" name="style" value="Balanced" /><label title="Balanced" for="newplan-styleBalanced">Balanced</label></div>
-                                <div class="column3"><input type="radio" id="newplan-styleHiddenGems" class="styleHiddenGems flat" name="style" value="HiddenGems" /><label title="Hidden gems" for="newplan-styleHiddenGems">Hidden gems</label></div>
-                            </div>
-                            <div class="pace clearfix">
-                                <div class="column3"><input type="radio" id="newplan-paceFast" class="paceFast flat" name="pace" value="Fast" /><label title="Fast-paced" for="newplan-paceFast">Fast-paced</label></div>
-                                <div class="column3"><input type="radio" id="newplan-paceMedium" class="pageMedium flat" name="pace" value="Medium" checked /><label title="Medium" for="newplan-paceMedium">Medium</label></div>
-                                <div class="column3"><input type="radio" id="newplan-paceSlow" class="paceSlow flat" name="pace" value="Slow" /><label title="Slow & easy" for="newplan-paceSlow">Slow & easy</label></div>
+                                <div class="column3"><input type="radio" id="newplan-stylePopular" class="stylePopular flat" name="style" value="1" checked /><label title="Popular" for="newplan-stylePopular">Popular</label></div>
+                                <div class="column3"><input type="radio" id="newplan-styleBalanced" class="styleBlanaced flat" name="style" value="2" /><label title="Balanced" for="newplan-styleBalanced">Balanced</label></div>
+                                <div class="column3"><input type="radio" id="newplan-styleHiddenGems" class="styleHiddenGems flat" name="style" value="3" /><label title="Hidden gems" for="newplan-styleHiddenGems">Hidden gems</label></div>
                             </div>
                             <div class="interests">
-                                <div class="interests-wrap clearfix">
-                                    <div class="column3"><input type="checkbox" id="newplan-interestCulture" class="interest interestCulture flat" name="categoryGroupNames" value="culture" /><label title="Culture" for="newplan-interestCulture">Culture</label></div>
-                                    <div class="column3"><input type="checkbox" id="newplan-interestOutdoor" class="interest interestOutdoor flat" name="categoryGroupNames" value="outdoors" /><label title="Outdoors" for="newplan-interestOutdoor">Outdoors</label></div>
-                                    <div class="column3"><input type="checkbox" id="newplan-interestUnwind" class="interest interestUnwind flat" name="categoryGroupNames" value="unwind" /><label title="Relaxing" for="newplan-interestUnwind">Relaxing</label></div>
-                                    <div class="column3"><input type="checkbox" id="newplan-interestRomantic" class="interest interestRomantic flat" name="categoryGroupNames" value="romantic" /><label title="Romantic" for="newplan-interestRomantic">Romantic</label></div>
-                                    <div class="column3"><input type="checkbox" id="newplan-category10" class="flat" name="categoryGroupNames" value="Beaches" /><label title="Beaches" for="newplan-category10">Beaches</label></div>
-                                    <div class="column3"><input type="checkbox" id="newplan-category26" class="flat" name="categoryGroupNames" value="Historic Sites" /><label title="Historic sites" for="newplan-category26">Historic sites</label></div>
-                                    <div class="column3"><input type="checkbox" id="newplan-category16" class="flat" name="categoryGroupNames" value="Museums" /><label title="Museums" for="newplan-category16">Museums</label></div>
-                                    <div class="column3"><input type="checkbox" id="newplan-category4" class="flat" name="categoryGroupNames" value="Shopping" /><label title="Shopping" for="newplan-category4">Shopping</label></div>
-                                    <div class="column3"><input type="checkbox" id="newplan-category19" class="flat" name="categoryGroupNames" value="Wildlife" /><label title="Wildlife" for="newplan-category19">Wildlife</label></div>
+                                <div class="column3"><input type="checkbox" id="newplan-interestCulture" class="interest interestCulture flat" name="categoryGroupNames" value="culture" /><label title="Culture" for="newplan-interestCulture">Culture</label></div>
+                                <div class="column3"><input type="checkbox" id="newplan-interestOutdoor" class="interest interestOutdoor flat" name="categoryGroupNames" value="outdoors" /><label title="Outdoors" for="newplan-interestOutdoor">Outdoors</label></div>
+                                <div class="column3"><input type="checkbox" id="newplan-interestUnwind" class="interest interestUnwind flat" name="categoryGroupNames" value="unwind" /><label title="Relaxing" for="newplan-interestUnwind">Relaxing</label></div>
+                                <div class="column3"><input type="checkbox" id="newplan-interestFun" class="interest interestRomantic flat" name="categoryGroupNames" value="fun" /><label title="Fun" for="newplan-interestFun">Fun</label></div>
+                                <div class="column3"><input type="checkbox" id="newplan-category10" class="flat" name="categoryGroupNames" value="Beaches" /><label title="Beaches" for="newplan-category10">Beaches</label></div>
+                                <div class="column3"><input type="checkbox" id="newplan-category26" class="flat" name="categoryGroupNames" value="Historic Sites" /><label title="Historic sites" for="newplan-category26">Historic sites</label></div>
+                                <div class="column3"><input type="checkbox" id="newplan-category4" class="flat" name="categoryGroupNames" value="Shopping" /><label title="Shopping" for="newplan-category4">Shopping</label></div>
+                                <div class="column3"><input type="checkbox" id="newplan-category19" class="flat" name="categoryGroupNames" value="Generic" /><label title="Generic" for="newplan-category19">Generic</label></div>
+                            </div>
+                        </div>
+                        <div class="section-title more-options-btn expandable">Do you want food or drink in your plan?<span class="optional"> (optional)</span><i id="arrow" class="arrow fa fa-angle-down"></i></div>
+                        <div id="fooddiv" class="step-content">
+                            <div class="interests">
+                                <div class="column3">
+                                    @Html.DropDownList("FoodCategory", EnumHelper.GetSelectList(typeof(DayScheduling.Entities.Plan.FoodCategories)), "Select Food", new { @class = "mydropdownlist1" })
+                                </div>
+                                <div class="column3">&nbsp;</div>
+                                <div class="column3">
+                                    @Html.DropDownList("DrinkCategory", EnumHelper.GetSelectList(typeof(DayScheduling.Entities.Plan.DrinkCategories)), "Select Drink", new { @class = "mydropdownlist1" })
                                 </div>
                             </div>
                         </div>
@@ -209,6 +231,7 @@
             </div>
         </div>
 
+        <button type="button" class="cta-button large Add" data-event-src="Add" href="https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+Alsancak&key=AIzaSyBjS9eZc7OB_Hk2PDalIJYGowUUeCFQvk4">GET</button>
         <footer class="page-footer">
             <div class="footer-content">
                 <div class="row">
@@ -320,12 +343,59 @@
         </footer>
     </div>
     <script type="text/javascript">
-        $('#PlanBeginTime').datetimepicker({
-            step: 1
+        //$('#PlanBeginTime').datetimepicker({
+        //    step: 30
+        //});
+        //$('#PlanEndTime').datetimepicker({
+        //    step: 30
+        //});
+        //$('#PlanBeginTime').hide();
+        //$('#PlanEndTime').hide();
+        $('#fooddiv').hide();
+
+        $('#arrow').click(function () {
+            $('#arrow').removeClass(".down")
+            $('#arrow').addClass("up")
+            //$('#arrow').toggleClass("fa-angle-up");
+            $('#fooddiv').slideToggle();
         });
-        $('#PlanEndTime').datetimepicker({
-            step: 1
-        });
+
+        //$(function () {
+        //    var provinces = [
+        //        "Buca",
+        //        "Alsancak",
+        //        "Konak",
+        //        "Bornova",
+        //        "Balçova",
+        //        "Çeşme",
+        //        "Urla",
+        //        "Narlıdere",
+        //        "Karşıyaka",
+        //        "Bostanlı",
+        //        "Mavişehir",
+        //        "Güzelbahçe",
+        //        "Gaziemir",
+        //        "Buca",
+        //        "Bayraklı",
+        //        "Foça",
+        //        "Seferihisar",
+        //        "Karabağlar",
+        //        "Karaburun",
+        //        "Selçuk",
+        //        "Ödemiş",
+        //        "Bergama",
+        //        "Tire",
+        //        "Kemalpaşa",
+        //        "Çiğli",
+        //        "Dikili",
+        //        "Üçyol",
+        //        "Güzelyalı",
+        //        "Özdere"
+        //    ];
+        //    $('#PlaceAdress').autocomplete({
+        //        source: provinces
+        //    });
+        //});
 
         $('#newPlanForm').validate({
             rules: {

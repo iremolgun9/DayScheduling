@@ -44,6 +44,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GoogleMaps.LocationServices, Version=0.1.6329.16944, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GoogleMaps.LocationServices.1.2.0.1\lib\net40\GoogleMaps.LocationServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="JsAction, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\JsAction.0.5\lib\net40\JsAction.dll</HintPath>
       <Private>True</Private>
@@ -258,6 +262,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="GoogleMaps.LocationServices.readme.txt" />
     <Content Include="img\logo.ico" />
     <Content Include="img\logo.png" />
     <Content Include="img\preform-inspirock-steps-1.png" />
@@ -376,7 +381,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Home\DayByDay.cshtml" />
+    <Content Include="Views\Plan\DayByDay.cshtml" />
     <Content Include="Views\Shared\_LayoutPlanDayByDay.cshtml" />
     <Content Include="Views\Account\LoginPage.cshtml" />
     <Content Include="Views\Home\myPlans.cshtml" />
@@ -387,6 +392,7 @@
     <Content Include="Views\Home\UserPage.cshtml" />
     <Content Include="Views\Home\PlaceDetail.cshtml" />
     <Content Include="Views\Plan\PlanCriterias.cshtml" />
+    <Content Include="Views\Home\GetPlace.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DAL\" />

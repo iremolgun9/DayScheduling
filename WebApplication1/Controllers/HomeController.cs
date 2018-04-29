@@ -7,6 +7,8 @@ using System.Web.Mvc;
 using WebApplication1.Models;
 using DayScheduling.BLL;
 using DayScheduling.Entities.Activity;
+using DayScheduling.Entities.Plan;
+using DayScheduling.Entities.Account;
 using JsAction;
 
 namespace WebApplication1.Controllers
@@ -29,20 +31,6 @@ namespace WebApplication1.Controllers
             //}
             return View();
         }
-        [DSAuthorize]
-        public ActionResult DayByDay()
-        {
-            vmActivitiyEntities Model = bllAct.GetvmActivities();
-            return View(Model);
-        }
-
-        public ActionResult DeleteActivity()
-        {
-            BLLActivity bll = new BLLActivity();
-            bll.DeleteActivity(1009);
-            return RedirectToAction("DayByDay");
-        }
-
         public ActionResult MainPage()
         {
             return View();
@@ -68,5 +56,9 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
-       }
+        public ActionResult GetPlace()
+        {
+            return View();
+        }
+    }
     }

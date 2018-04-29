@@ -43,5 +43,32 @@ namespace DayScheduling.Data
             //Models.Database.ExecuteSqlCommand(result.ToString());
             //return result.ToString();
         }
+
+        public Place getBreakfastPlace(int provinceID, int budget, string Popularity, int NOF)
+        {
+            string query = @"SELECT * FROM Place P WHERE P.ProvinceID = @provinceID AND P.PlacePrice <= @budget AND P.PlacePopularityID = @Popularity AND((P.NumberOfPerson>=@NOF) OR (P.NumberOfPerson = 0)) AND (P.PlaceTypeID = 10)";
+            var res = Models.Database.SqlQuery<Place>(query, new SqlParameter("@provinceID", provinceID), new SqlParameter("@budget", budget),new SqlParameter("@Popularity", Popularity), new SqlParameter("@NOF", NOF));
+            return res.FirstOrDefault();
+        }
+        public Place getCulturelPlace(int provinceID, int budget, string Popularity, int NOF)
+        {
+            string query = @"SELECT * FROM Place P WHERE P.ProvinceID = @provinceID AND P.PlacePrice <= @budget AND P.PlacePopularityID = @Popularity AND((P.NumberOfPerson>=@NOF) OR (P.NumberOfPerson = 0)) AND (P.PlaceTypeID = 140)";
+            var res = Models.Database.SqlQuery<Place>(query, new SqlParameter("@provinceID", provinceID), new SqlParameter("@budget", budget), new SqlParameter("@Popularity", Popularity), new SqlParameter("@NOF", NOF));
+            return res.FirstOrDefault();
+        }
+        public Place getShoppingPlace(int provinceID, int budget, string Popularity, int NOF)
+        {
+            string query = @"SELECT * FROM Place P WHERE P.ProvinceID = @provinceID AND P.PlacePrice <= @budget AND P.PlacePopularityID = @Popularity AND((P.NumberOfPerson>=@NOF) OR (P.NumberOfPerson = 0)) AND (P.PlaceTypeID = 70)";
+            var res = Models.Database.SqlQuery<Place>(query, new SqlParameter("@provinceID", provinceID), new SqlParameter("@budget", budget), new SqlParameter("@Popularity", Popularity), new SqlParameter("@NOF", NOF));
+            return res.FirstOrDefault();
+        }
+
+        public Place getHistoricSites(int provinceID, int budget, string Popularity, int NOF)
+        {
+            string query = @"SELECT * FROM Place P WHERE P.ProvinceID = @provinceID AND P.PlacePrice <= @budget AND P.PlacePopularityID = @Popularity AND((P.NumberOfPerson>=@NOF) OR (P.NumberOfPerson = 0)) AND (P.PlaceTypeID = 80)";
+            var res = Models.Database.SqlQuery<Place>(query, new SqlParameter("@provinceID", provinceID), new SqlParameter("@budget", budget), new SqlParameter("@Popularity", Popularity), new SqlParameter("@NOF", NOF));
+            return res.FirstOrDefault();
+        }
+
     }
 }
