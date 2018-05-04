@@ -322,7 +322,7 @@
                                                             <button id="updateChangeBtn" type="button" class="cta-button large" enabled="">Change</button>
                                                         </div>
                                                     }
-                                                        @Html.ActionLink("Delete Activity","DeleteActivity","Plan",new { }) <div id="dvdeleteAct" class="delete-event secondary-text-link"></div>
+                                                        <div id="dvdeleteAct" class="delete-event secondary-text-link">Delete Activity</div>
                                                     </div>
                                                 </div>
                                             </div><div class="ui-selectmenu-menu ui-front"><ul aria-hidden="true" aria-labelledby="start-time-button" id="start-time-menu" role="listbox" tabindex="0" class="ui-menu ui-corner-bottom ui-widget ui-widget-content"></ul></div><div class="ui-selectmenu-menu ui-front"><ul aria-hidden="true" aria-labelledby="end-time-button" id="end-time-menu" role="listbox" tabindex="0" class="ui-menu ui-corner-bottom ui-widget ui-widget-content"></ul></div>
@@ -673,6 +673,15 @@
                     $('#updateActivityIDSave').val(data.activityID);
                     $('#updatePlaceIDSave').val(data.PlaceID);
                     $('#updateActivityTypeSave').val(data.Activitytype);
+                });
+            });
+
+            $('#dvdeleteAct').click(function (data) {
+                debugger;
+                var ActivityID = $('#updateActivityID').val();
+                var planID = $('#updatePlanIDSave').val();
+                $.post('@Url.Action("DeleteActivity", "Plan")', { ID: ActivityID, PlanID: planID  }, function (data) {
+                    window.location.replace(data.TargetUrl);
                 });
             });
 

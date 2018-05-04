@@ -39,11 +39,12 @@ namespace WebApplication1.Controllers
             return View(Model);
         }
 
-        public ActionResult DeleteActivity()
+        public ActionResult DeleteActivity(int ID,int PlanID)
         {
-            BLLActivity bll = new BLLActivity();
-            bll.DeleteActivity(1009);
-            return RedirectToAction("DayByDay");
+            bllact.DeleteActivity(ID);
+            TempData["ExistPlan"] = bllplan.GetExistPlan(PlanID);
+            var res = new { TargetUrl = Url.Action("GetPlan", "Plan") };
+            return Json(res,JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult PlaceDetail(pmPlaceDetail param)

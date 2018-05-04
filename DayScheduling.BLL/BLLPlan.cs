@@ -505,7 +505,7 @@ namespace DayScheduling.BLL
             LocationManager locationManager = new LocationManager();
             DirectionLatLong direction = new DirectionLatLong();
             model.CurrentTime = model.StartTime;
-            model.PlanID = model.Plan[0].PlanID;
+            model.PlanID = model.Plan[0].PlanID; //Act olmadığı için.
             model.ProvinceID = model.Plan[0].place.ProvinceID;
             model.Province = Enum.GetName(typeof(Provinces), model.Plan[0].place.ProvinceID);
             model.Plan[0].StartTime = model.CurrentTime;
