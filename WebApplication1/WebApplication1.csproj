@@ -277,6 +277,7 @@
     <Content Include="photos\newplan-bkg.jpg" />
     <Content Include="photos\no-image.jpg" />
     <Content Include="photos\polaroids.png" />
+    <Content Include="res\images\assets\alaçatı.png" />
     <Content Include="res\images\assets\apple-touch-icon-57x57.png" />
     <Content Include="res\images\assets\apple-touch-icon-60x60.png" />
     <Content Include="res\images\assets\apple-touch-icon-72x72.png" />
