@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using DayScheduling.Entities.Activity;
 using JsAction;
 
 namespace WebApplication1
@@ -42,6 +43,13 @@ namespace WebApplication1
                 url: "Plan/PlanCriterias",
                 defaults: new { controller = "Plan", action = "PlanCriterias" }
                 );
+
+            //routes.MapRoute(
+            //    name: "DayByDay",
+            //    url: "{controller}/{action}/{Plan}",
+            //    defaults: new { controller = "Plan", action = "DayByDay", Plan = new List<vmPartialActivity>()}
+            //    );
+
 
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
