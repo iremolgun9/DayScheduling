@@ -32,5 +32,13 @@ namespace DayScheduling.Data
             int id = res.FirstOrDefault();
             return id;
         }
+
+        public List<Plan> GetList(int AccountID)
+        {
+            string query = @"SELECT * FROM PlanHistory WHERE AccountID = @accountID";
+            var res = Models.Database.SqlQuery<Plan>(query, new SqlParameter("@accountID",AccountID));
+            return res.ToList();
+        }
+
     }
 }

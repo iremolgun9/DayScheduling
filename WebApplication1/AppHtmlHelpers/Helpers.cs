@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNetCore.Html;
+using System.Security.Policy;
 
 namespace WebApplication1.AppHtmlHelpers
 {
@@ -217,6 +218,82 @@ namespace WebApplication1.AppHtmlHelpers
             label.Attributes.Add("title", labelTitle);
             label.InnerHtml = labelTitle;
             return MvcHtmlString.Create(label.ToString(TagRenderMode.Normal));
+        }
+
+        public static MvcHtmlString BlockPlan(int PlanID,string ProvinceName, string PlanPhoto,string PlanCategories,string Popularity)
+        {
+            TagBuilder blockSmPlan = new TagBuilder("a");
+            blockSmPlan.AddCssClass("block sm plan  notranslate");
+            blockSmPlan.Attributes.Add("href", "/Plan/GetPlan");
+            TagBuilder spanDestImage = new TagBuilder("span");
+            spanDestImage.AddCssClass("dest-image lazyload");
+            spanDestImage.Attributes.Add("data-url", "../../photos/" + "102.jpg");//PlanPhoto);
+            TagBuilder spanBox = new TagBuilder("span");
+            spanBox.AddCssClass("box");
+            TagBuilder spanTextinBox = new TagBuilder("span");
+            spanTextinBox.AddCssClass("text in-box");
+            TagBuilder spanPrimaryText = new TagBuilder("span");
+            spanPrimaryText.AddCssClass("primarytext");
+            TagBuilder spanActionText = new TagBuilder("span");
+            spanActionText.AddCssClass("actiontext");
+            spanActionText.InnerHtml = "VIEW/EDIT";
+            TagBuilder spanSubtextBoxInBox = new TagBuilder("span");
+            spanSubtextBoxInBox.AddCssClass("subtext-box in-box");
+            TagBuilder spanSubtext = new TagBuilder("span");
+            spanSubtext.AddCssClass("subtext");
+            TagBuilder spanDefault = new TagBuilder("span");
+            spanDefault.AddCssClass("default");
+            TagBuilder spanHover = new TagBuilder("span");
+            spanHover.AddCssClass("hover");
+            TagBuilder spanLine1 = new TagBuilder("span");
+            spanLine1.AddCssClass("line");
+            spanLine1.InnerHtml = "<strong>PREFERENCES:</strong>" + "culturel,fun,outdoor";//PlanCategories;
+            TagBuilder spanLine2 = new TagBuilder("span");
+            spanLine2.AddCssClass("line");
+            spanLine2.InnerHtml = " <strong>ATTRACTION STYLE:</strong>" + "Popular";//Popularity;
+            TagBuilder spanDeleteConf = new TagBuilder("span");
+            spanDeleteConf.AddCssClass("delete-conf in-box");
+            TagBuilder spanQ = new TagBuilder("span");
+            spanQ.AddCssClass("q");
+            spanQ.InnerHtml = "Delete this plan?";
+            TagBuilder btnCancel = new TagBuilder("button");
+            btnCancel.AddCssClass("cancel cta-button large");
+            btnCancel.InnerHtml = "Cancel";
+            TagBuilder btnDelete = new TagBuilder("button");
+            btnDelete.AddCssClass("confirm cta-button large");
+            btnDelete.InnerHtml = "Yes, Delete";
+            TagBuilder spanCaution = new TagBuilder("span");
+            spanCaution.AddCssClass("caution");
+            spanCaution.InnerHtml = "CAUTION: THIS CANNOT BE UNDONE";
+            TagBuilder spanDeleteIcon = new TagBuilder("span");
+            spanDeleteIcon.AddCssClass("delete");
+            spanDeleteIcon.InnerHtml = "<svg><use xlink:href=" + "#icon-trash /></svg>";
+
+            spanHover = combineTags(spanHover,spanLine1);
+            spanHover = combineTags(spanHover, spanLine2);
+
+            spanSubtext = combineTags(spanSubtext,spanDefault);
+            spanSubtext = combineTags(spanSubtext, spanHover);
+            spanSubtextBoxInBox = combineTags(spanSubtextBoxInBox, spanSubtext);
+
+            spanPrimaryText.InnerHtml = "Plan in Bornova"; //+ ProvinceName;
+
+            spanTextinBox = combineTags(spanTextinBox,spanPrimaryText);
+            spanTextinBox = combineTags(spanTextinBox,spanActionText);
+
+            spanDeleteConf = combineTags(spanDeleteConf,spanQ);
+            spanDeleteConf = combineTags(spanDeleteConf, btnCancel);
+            spanDeleteConf = combineTags(spanDeleteConf, btnDelete);
+            spanDeleteConf = combineTags(spanDeleteConf, spanCaution);
+
+            spanBox = combineTags(spanBox, spanTextinBox);
+            spanBox = combineTags(spanBox,spanSubtextBoxInBox);
+            spanBox = combineTags(spanBox,spanDeleteConf);
+
+            blockSmPlan = combineTags(blockSmPlan,spanDestImage);
+            blockSmPlan = combineTags(blockSmPlan,spanBox);
+            blockSmPlan = combineTags(blockSmPlan,spanDeleteIcon);
+            return MvcHtmlString.Create(blockSmPlan.ToString(TagRenderMode.Normal));
         }
 
         private static TagBuilder combineTags(TagBuilder t1,TagBuilder t2)

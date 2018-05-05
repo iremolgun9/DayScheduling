@@ -549,7 +549,19 @@ namespace DayScheduling.BLL
             model.PlanID = dalplan.GetLastPlanID();
             //newPlan.PlanComplete
             //newPlan.PlanType             
-        } 
+        }
+        
+        //public List<vmPlanBlock> GetPlanList(int AccountID)
+        //{
+        //    //List<Plan> PlanList = dalplan.GetList(AccountID);
+        //    //foreach (var item in PlanList)
+        //    //{
+        //    //    vmPlanBlock planBlock = new vmPlanBlock();
+        //    //    planBlock.PlanID = item.PlanID;
+        //    //    planBlock.Popularity = item.PlanPopularity;
+
+        //    //}
+        //} 
 
         public vmPlaceDetail getPlaceDetail(pmPlaceDetail param)
         {

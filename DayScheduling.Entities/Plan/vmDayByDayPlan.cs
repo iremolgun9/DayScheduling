@@ -160,4 +160,18 @@ namespace DayScheduling.Entities.Plan
         public string updateActivityTypeSave { get; set; }
     }
 
+    public class vmPlanBlock
+    {
+        public List<string> Categories { get; set; }
+        public string Popularity { get; set; }
+        public string ProvinceName { get; set; }
+        public int ProvinceID { get; set; }
+        public int PlanID { get; set; }
+    }
+    
+    public class vmUserPage
+    {
+        public List<vmPlanBlock> PlanBlockList { get; set; }
+    }
+
 }

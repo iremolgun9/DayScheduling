@@ -278,6 +278,8 @@
     <Content Include="js\login.js" />
     <Content Include="js\newplan.js" />
     <Content Include="logo.png" />
+    <Content Include="fonts\NOTEPAD_.TTF" />
+    <Content Include="fonts\OratorStd.otf" />
     <None Include="photos\izmir" />
     <Content Include="img\efes.jpg" />
     <Content Include="photos\100.jpg" />
@@ -588,9 +590,11 @@
     <Content Include="photos\435.jpg" />
     <Content Include="photos\436.jpg" />
     <Content Include="photos\438.jpg" />
+    <Content Include="photos\izmir-night.jpg" />
     <Content Include="photos\newplan-bkg.jpg" />
     <Content Include="photos\no-image.jpg" />
     <Content Include="photos\polaroids.png" />
+    <Content Include="photos\shore-2869862_1280.jpg" />
     <Content Include="res\images\assets\apple-touch-icon-57x57.png" />
     <Content Include="res\images\assets\apple-touch-icon-60x60.png" />
     <Content Include="res\images\assets\apple-touch-icon-72x72.png" />

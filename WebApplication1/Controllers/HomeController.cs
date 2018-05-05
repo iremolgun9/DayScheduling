@@ -18,6 +18,7 @@ namespace WebApplication1.Controllers
     {
         BLLActivity bllAct = new BLLActivity();
         BLLAccount bllAcc = new BLLAccount();
+        BLLPlan bllPlan = new BLLPlan();
 
         public ActionResult Index()
         {
@@ -35,7 +36,7 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
-        [Authorize]
+        [DSAuthorize]
         public ActionResult myPlans()
         {
             return View();
@@ -52,8 +53,11 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
+        [DSAuthorize]
         public ActionResult UserPage()
         {
+            vmUserPage model = new vmUserPage();
+            
             return View();
         }
         public ActionResult GetPlace()
