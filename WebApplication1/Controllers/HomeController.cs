@@ -36,11 +36,6 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
-        [DSAuthorize]
-        public ActionResult myPlans()
-        {
-            return View();
-        }
         public ActionResult viewPlan()        
             {
                 return View();
@@ -57,8 +52,8 @@ namespace WebApplication1.Controllers
         public ActionResult UserPage()
         {
             vmUserPage model = new vmUserPage();
-            
-            return View();
+            model.PlanBlockList = bllPlan.GetPlanBlockList(AccountUser.Account.AccountID,true);
+            return View(model);
         }
         public ActionResult GetPlace()
         {

@@ -111,8 +111,6 @@ namespace WebApplication1.AppHtmlHelpers
             divDesc.AddCssClass("desc");
 
             blockquoteTrimDesc.AddCssClass("trim-desc");
-            blockquoteTrimDesc.Attributes.Add("cite", "mekanbilgilendirmesi");//////
-            blockquoteTrimDesc.InnerHtml = PlaceDescp;//ActivityModelin Descp gelecek. ++++
 
             divTours.AddCssClass("tours");
 
@@ -220,18 +218,18 @@ namespace WebApplication1.AppHtmlHelpers
             return MvcHtmlString.Create(label.ToString(TagRenderMode.Normal));
         }
 
-        public static MvcHtmlString BlockPlan(int PlanID,string ProvinceName, string PlanPhoto,string PlanCategories,string Popularity)
+        public static MvcHtmlString BlockPlan(int PlanID,string ProvinceName, string ProvinceID,string PlanCategories,string Popularity)
         {
             TagBuilder blockSmPlan = new TagBuilder("a");
             blockSmPlan.AddCssClass("block sm plan  notranslate");
-            blockSmPlan.Attributes.Add("href", "/Plan/GetPlan");
             TagBuilder spanDestImage = new TagBuilder("span");
             spanDestImage.AddCssClass("dest-image lazyload");
-            spanDestImage.Attributes.Add("data-url", "../../photos/" + "102.jpg");//PlanPhoto);
+            spanDestImage.Attributes.Add("data-url", "../../photos/Pro" + ProvinceID + ".jpg");
             TagBuilder spanBox = new TagBuilder("span");
             spanBox.AddCssClass("box");
             TagBuilder spanTextinBox = new TagBuilder("span");
             spanTextinBox.AddCssClass("text in-box");
+            spanTextinBox.Attributes.Add("data-id", PlanID.ToString());
             TagBuilder spanPrimaryText = new TagBuilder("span");
             spanPrimaryText.AddCssClass("primarytext");
             TagBuilder spanActionText = new TagBuilder("span");
@@ -247,10 +245,10 @@ namespace WebApplication1.AppHtmlHelpers
             spanHover.AddCssClass("hover");
             TagBuilder spanLine1 = new TagBuilder("span");
             spanLine1.AddCssClass("line");
-            spanLine1.InnerHtml = "<strong>PREFERENCES:</strong>" + "culturel,fun,outdoor";//PlanCategories;
+            spanLine1.InnerHtml = "<strong>PREFERENCES:</strong>" + "  "  + PlanCategories;
             TagBuilder spanLine2 = new TagBuilder("span");
             spanLine2.AddCssClass("line");
-            spanLine2.InnerHtml = " <strong>ATTRACTION STYLE:</strong>" + "Popular";//Popularity;
+            spanLine2.InnerHtml = " <strong>ATTRACTION STYLE:</strong>" + Popularity;
             TagBuilder spanDeleteConf = new TagBuilder("span");
             spanDeleteConf.AddCssClass("delete-conf in-box");
             TagBuilder spanQ = new TagBuilder("span");
@@ -261,6 +259,7 @@ namespace WebApplication1.AppHtmlHelpers
             btnCancel.InnerHtml = "Cancel";
             TagBuilder btnDelete = new TagBuilder("button");
             btnDelete.AddCssClass("confirm cta-button large");
+            btnDelete.Attributes.Add("data-id", PlanID.ToString());
             btnDelete.InnerHtml = "Yes, Delete";
             TagBuilder spanCaution = new TagBuilder("span");
             spanCaution.AddCssClass("caution");
@@ -268,6 +267,7 @@ namespace WebApplication1.AppHtmlHelpers
             TagBuilder spanDeleteIcon = new TagBuilder("span");
             spanDeleteIcon.AddCssClass("delete");
             spanDeleteIcon.InnerHtml = "<svg><use xlink:href=" + "#icon-trash /></svg>";
+            
 
             spanHover = combineTags(spanHover,spanLine1);
             spanHover = combineTags(spanHover, spanLine2);
@@ -276,10 +276,10 @@ namespace WebApplication1.AppHtmlHelpers
             spanSubtext = combineTags(spanSubtext, spanHover);
             spanSubtextBoxInBox = combineTags(spanSubtextBoxInBox, spanSubtext);
 
-            spanPrimaryText.InnerHtml = "Plan in Bornova"; //+ ProvinceName;
+            spanPrimaryText.InnerHtml = "Plan in " + ProvinceName;
 
             spanTextinBox = combineTags(spanTextinBox,spanPrimaryText);
-            spanTextinBox = combineTags(spanTextinBox,spanActionText);
+            spanTextinBox = combineTags(spanTextinBox, spanActionText);
 
             spanDeleteConf = combineTags(spanDeleteConf,spanQ);
             spanDeleteConf = combineTags(spanDeleteConf, btnCancel);

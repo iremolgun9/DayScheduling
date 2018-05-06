@@ -86,6 +86,14 @@
             font-style: normal;
             src: local('Lato Black'), local('Lato-900'), url('../../fonts/Lato-900.woff2') format('woff2'), url('../../fonts/Lato-900.woff') format('woff'), url('../../fonts/Lato-900.ttf') format('truetype');
         }
+         @@font-face {
+      font-family:OratorStd;
+      src:url(../../fonts/OratorStd.otf);
+        }
+         @@font-face {
+      font-family:NOTEPAD;
+      src:url(../../fonts/NOTEPAD_.TTF);
+        }
     </style>
     <link rel="stylesheet" type="text/css" href='~/css/commoncss.css'>
     <link rel="stylesheet" type="text/css" href='~/css/resultpage.css'>
@@ -180,7 +188,14 @@
                                     </li>
                                     <li id="userLogin" class="">
                                         <a rel="nofollow" class="login-button" href="@Url.Action("LoginPage","Account")">
-                                            <span>Log in</span>
+                                            @if (!DayScheduling.Entities.Account.AccountUser.isLogined)
+                                            {
+                                                <span>Log in</span>
+                                            }
+                                            else
+                                            {
+                                                <span>@DayScheduling.Entities.Account.AccountUser.User.UserName</span>
+                                            }
                                         </a>
                                     </li>
                                     <li class="vertical-line"></li>
@@ -226,7 +241,7 @@
                                         </font>
                                     <p>
                                     <p>
-                                        <font face="NOTEPAD_" size="15" color="grey" >
+                                        <font face="NOTEPAD" size="15" color="grey" >
                                             <b>MAKE YOUR DAILY PLAN!</b>
                                         </font>
                                     <p>
@@ -242,10 +257,6 @@
                         </div>
                     </div>
 
-                    <li id="headerstartplanning" class="headerstartplanning ">
-                        <button type="button" style="border-top-right-radius"                            <button class="cta-button large">Let's plan</button>
-                            </button>
-                    </li>
                     <input type="hidden" name="requiredAttractionId" value="" />
                     <div>
                         <input type="hidden" name="_csrf" value="86b5e51d-b227-460e-9ba5-6d70269d0011" />

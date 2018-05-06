@@ -15,7 +15,10 @@ namespace WebApplication1.Controllers
         BLLAccount bllAcc = new BLLAccount();
         public ActionResult LoginPage()
         {
+            if(!AccountUser.isLogined)
             return View();
+
+            return RedirectToAction("UserPage", "Home");
         }
         [HttpPost]
         public ActionResult isLoginSuccess(string NameOrEmail, string password)
