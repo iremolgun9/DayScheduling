@@ -567,15 +567,19 @@ namespace DayScheduling.BLL
                 planBlock.ProvinceName = Enum.GetName(typeof(Provinces), item.ProvinceID);
                 List<vmPartialActivity> actList = bllAct.GetActivities(planBlock.PlanID);
                 planBlock.Categories = actList[0].ActivityPlaceType;
-                for (int i = 1; i < actList.Count; i++)
+                if (actList.Count != 0)
                 {
-                    //if (i == actList.Count - 1)
-                    //{
-                    //    planBlock.Categories += actList[i].ActivityPlaceType;
-                    //}
-                    planBlock.Categories += "," + actList[i].ActivityPlaceType;
+                    planBlock.Categories = actList[0].ActivityPlaceType;
+                    for (int i = 1; i < actList.Count; i++)
+                    {
+                        //if (i == actList.Count - 1)
+                        //{
+                        //    planBlock.Categories += actList[i].ActivityPlaceType;
+                        //}
+                        planBlock.Categories += "," + actList[i].ActivityPlaceType;
+                    }
+                    PlanBlockList.Add(planBlock);
                 }
-                PlanBlockList.Add(planBlock);
                 userPageBlockCount++;
             }
             return PlanBlockList;
