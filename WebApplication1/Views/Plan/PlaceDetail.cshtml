@@ -32,19 +32,6 @@
     <link rel="stylesheet" type="text/css" href="~/Content/themes/base/jquery.ui.theme.css" />
     <link rel="Shortcut Icon" href="~/img/logo.ico" type="image/x-icon">
     <style>
-             /* Always set the map height explicitly to define the size of the div
-        * element that contains the map. */
-             #map {
-                 height: 30%;
-             }
-             /* Optional: Makes the sample page fill the window. */
-             html, body {
-                 height: 100%;
-                 margin: 0;
-                 padding: 0;
-             }
-    </style>
-    <style>
         @@font-face {
             font-family: 'Lato';
             font-weight: 300;
@@ -123,25 +110,11 @@
                                 <a rel="nofollow" href="javascript:void(0);">
                                     <span class="name">@DayScheduling.Entities.Account.AccountUser.User.UserName</span>
                                 </a>
-                                <div id="dvlogout" class="hidden">
-                                    <div id="userDropdown">
-                                        <ul>
-                                            <li class="logout-button">Log out</li>
-                                        </ul>
-                                    </div>
-                                    <form id="logoutForm" action="/logout" method="POST">
-                                        <a rel="nofollow" href="~/Views/Home/Index.cshtml"></a>
-
-                                        <div>
-                                            <input type="hidden" name="_csrf" value="f9994fec-b30c-45bc-8b2c-28d77075f441" />
-                                        </div>
-                                    </form>
-                                </div>
                             </li>
                             <li class="vertical-line"></li>
-                            <li class="liLogOut">
-                                <a rel="nofollow" href="">
-                                    <span class="name">Log Out</span>
+                            <li id="userLogout" class="">
+                                <a rel="nofollow" class="login-button" href="@Url.Action("LogOut","Home")">
+                                    <span>Log Out</span>
                                 </a>
                             </li>
                         </ul>
@@ -524,8 +497,9 @@
                                     </div>
                                 <div class="left-col ">
                                     <div class="title-area">
-                                        <span class="title destinationDetailsLink clickable-text" data-link="/trip/a2f6de2f7-eef8-4914-a130-4bc3380476d4/turkey/izmir/trip-planner-d311325597" data-event-src="stay-pane-overview.title">@Model.PlaceName</span>
-                                        <button type="button" class="cta-button small dayByDayStayLink" data-date="2018-02-20" data-name="Izmir"><p><font face="Berlin Sans FB" size="4" color="white"><b>Location</b></font></p></button>
+                                        <span class="title destinationDetailsLink clickable-text">@Model.PlaceName</span>
+                                        @Html.ActionLink("Location","PlaceLocation","Plan", new { PlaceLat = Model.Lat, PlaceLong = Model.Long }, new { @class = "cta-button small dayByDayStayLink" })
+                                        @*<button type="button" class="cta-button small dayByDayStayLink" data-date="2018-02-20" data-name="Izmir"><p><font face="Berlin Sans FB" size="4" color="white"><b>Location</b></font></p></button>*@
                                     </div>
                                 </div>
                                     <div class="rating">
@@ -567,25 +541,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="map"></div>
-<script>
-
-    function initMap() {
-        debugger;
-        var myLatLng = {lat: -25.363, lng: 131.044};
-
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: myLatLng
-        });
-
-        var marker = new google.maps.Marker({
-          position: myLatLng,
-          map: map,
-          title: 'Hello World!'
-        });
-      }
-</script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjS9eZc7OB_Hk2PDalIJYGowUUeCFQvk4&callback=initMap">
 </script>
 </body>

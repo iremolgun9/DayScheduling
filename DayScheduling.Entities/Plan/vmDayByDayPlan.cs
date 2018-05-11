@@ -92,15 +92,6 @@ namespace DayScheduling.Entities.Plan
         HiddenGems = 2
     }
 
-    public class Travel
-    {
-        public string tDuration { get; set; }
-        public string tSourceLat { get; set; }
-        public string tSourceLong { get; set; }
-        public string tDestinationLat { get; set; }
-        public string tDestinationLong { get; set; }
-    }
-
     public class vmDayByDayPlan
     {
         public int PlanID { get; set; } 
@@ -110,7 +101,6 @@ namespace DayScheduling.Entities.Plan
         public TimeSpan StartTime = new TimeSpan(10,0,0);
         public TimeSpan CurrentTime { get; set; }
         public TimeSpan FinishTime { get; set; }
-        public List<Travel> TravelList { get; set; }
         public string Popularity { get; set; }
     }
 
@@ -131,6 +121,7 @@ namespace DayScheduling.Entities.Plan
         public List<string> categoryGroupNames { get; set; }
         public string FoodCategory { get; set; }
         public string AlcoholCategory { get; set; }
+        public string RateDecision { get; set; }
     }
     public class vmPlaceDetail
     {
@@ -182,5 +173,10 @@ namespace DayScheduling.Entities.Plan
     public class vmMyPlans
     {
         public List<vmPlanBlock> PlanBlockList { get; set; }
+    }
+    public class vmPlaceLocation
+    {
+        public string PlaceLat { get; set; }
+        public string PlaceLong { get; set; }
     }
 }

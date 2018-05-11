@@ -7,7 +7,6 @@ using System.Net;
 
 namespace GeoWeb
 {
-
     public class DirectionLatLong
     {
         public string Duration { get; set; }
@@ -15,6 +14,12 @@ namespace GeoWeb
         public string SourceLong { get; set; }
         public string DestinationLat { get; set; }
         public string DestinationLong { get; set; }
+    }
+
+    public class LatLong
+    {
+        public string lat;
+        public string Long;
     }
 
     public class LocationManager
@@ -36,6 +41,18 @@ namespace GeoWeb
             res.SourceLong = p1.Longitude.ToString().Replace(",", ".");
             res.DestinationLat  = p2.Latitude.ToString().Replace(",", ".");
             res.DestinationLong = p2.Longitude.ToString().Replace(",", ".");
+            return res;
+        }
+
+        public LatLong GetLatLong(string placeAddress)
+        {
+            LatLong res = new LatLong();
+            GoogleLocationService locationService = new GoogleLocationService("AIzaSyBjS9eZc7OB_Hk2PDalIJYGowUUeCFQvk4");
+            AddressData address = new AddressData();
+            address.Address = placeAddress;
+            var p1 = locationService.GetLatLongFromAddress(address);
+            res.lat = p1.Latitude.ToString().Replace(",", ".");
+            res.Long = p1.Longitude.ToString().Replace(",", ".");
             return res;
         }
 

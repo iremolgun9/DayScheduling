@@ -156,22 +156,10 @@
                                     <span>My plans</span>
                                 </a>
                             </li>
-                            <li id="userOptions" class="hidden">
-                                <a rel="nofollow" href="~/Plan/DayByDay">
-                                    <span class="name">Profile</span>
+                            <li id="userLogout" class="">
+                                <a rel="nofollow" class="login-button" href="@Url.Action("LogOut","Home")">
+                                   <span>Log Out</span>
                                 </a>
-                                <div class="hidden">
-                                    <div id="userDropdown">
-                                        <ul>
-                                            <li class="logout-button">Log out</li>
-                                        </ul>
-                                    </div>
-                                    <form id="logoutForm" action="https://www.inspirock.com/logout" method="POST">
-                                        <div>
-                                            <input type="hidden" name="_csrf" value="0ff48de0-945c-4ba5-905f-a29be48a8e39" />
-                                        </div>
-                                    </form>
-                                </div>
                             </li>
                         </ul>
                     </nav>
@@ -194,11 +182,8 @@
                                     <div id="daybydaylink" class="subnavlink active" data-target="daybyday" data-url="/trip/2-days-in-izmir-itinerary-with-culture-a2f6de2f7-eef8-4914-a130-4bc3380476d4/itinerary/list">
                                         <span class="title">Timeline</span>
                                     </div>
-                                    <div id="calendarlink" class="subnavlink " data-target="calendar" data-url="/trip/2-days-in-izmir-itinerary-with-culture-a2f6de2f7-eef8-4914-a130-4bc3380476d4/itinerary/calendar">
-                                        <span class="title">Calendar</span>
-                                    </div>
                                     <div id="mapslink" class="subnavlink " data-target="maps" data-url="/trip/2-days-in-izmir-itinerary-with-culture-a2f6de2f7-eef8-4914-a130-4bc3380476d4/itinerary/maps">
-                                        <span class="title">Maps</span>
+                                        @Html.ActionLink("DIRECTIONS","PlanDirections","Plan",new {PlanID = Model.PlanID }, new {@class = "title"})
                                     </div>
                                 </div>
                                 <ul class="subnav-actions">
@@ -295,9 +280,8 @@
                                                             <div class="time-holder col-3 start">
                                                                 <div class="start-time-title title">Place Type</div>
                                                                 @Html.DropDownList("updateActivityType", EnumHelper.GetSelectList(typeof(DayScheduling.Entities.Plan.ActivityTypeUpdate)), "Activity Type", new { @class = "mydropdownlist1" })
-                                                                <div class="style clearfix">
+                                                                <div class="style clearfix" style="width: 300px; height: 200px;" >
                                                                     <div class="column3"><input type="radio" id="newplan-stylePopular" class="stylePopular flat" name="style" value="1" checked /><label title="Popular" for="newplan-stylePopular">Popular</label></div>
-                                                                    <div class="column3"><input type="radio" id="newplan-styleBalanced" class="styleBlanaced flat" name="style" value="2" /><label title="Balanced" for="newplan-styleBalanced">Balanced</label></div>
                                                                     <div class="column3"><input type="radio" id="newplan-styleHiddenGems" class="styleHiddenGems flat" name="style" value="3" /><label title="Hidden gems" for="newplan-styleHiddenGems">Hidden gems</label></div>
                                                                 </div>
                                                             </div>

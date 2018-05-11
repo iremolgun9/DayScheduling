@@ -6,20 +6,20 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="canonical" href="https://www.inspirock.com/">
     <meta name="robots" content="index,follow" />
-    <title>Trip Planner: Plan & manage your vacation itinerary on Inspfirock • Inspirock</title>
+    <title>Day Planner</title>
     <meta name="description" content="Create a customized daily for yourself." />
     <meta name="_csrf_parameter" content="_csrf" />
     <meta name="_csrf_header" content="X-CSRF-TOKEN" />
     <meta name="_csrf" content="fabbdc7e-77ee-40cb-a6f3-8ebf1f728bb3" />
-    <link rel="apple-touch-icon" sizes="57x57" href="https://s.inspirock.com/images/meta/apple-touch-icon-57x57.png">
+    @*<link rel="apple-touch-icon" sizes="57x57" href="https://s.inspirock.com/images/meta/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="https://s.inspirock.com/images/meta/apple-touch-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="https://s.inspirock.com/images/meta/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="76x76" href="https://s.inspirock.com/images/meta/apple-touch-icon-76x76.png">
     <link rel="icon" type="image/png" href="https://s.inspirock.com/images/meta/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://s.inspirock.com/images/meta/favicon-96x96.png" sizes="96x96">
-    <link rel="icon" type="image/png" href="https://s.inspirock.com/images/meta/favicon-16x16.png" sizes="16x16">
-    <link rel="shortcut icon" href="https://s.inspirock.com/images/meta/favicon.ico">
-    <link rel="manifest" href="https://s.inspirock.com/images/meta/manifest.json">
+    <link rel="icon" type="image/png" href="https://s.inspirock.com/images/meta/favicon-16x16.png" sizes="16x16">*@
+    @*<link rel="manifest" href="https://s.inspirock.com/images/meta/manifest.json">*@
+    <link rel="Shortcut Icon" href="~/img/logo.ico" type="image/x-icon">
     <meta name="msapplication-TileColor" content="#000000">
     <meta name="msapplication-config" content="https://s.inspirock.com/images/meta/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
@@ -178,7 +178,12 @@
                                 </a>
                             </li>
                             <li id="userLogin" class="">
-                                <span>@DayScheduling.Entities.Account.AccountUser.User.UserName</span>
+                                <a href="/Home/UserPage"><span>@DayScheduling.Entities.Account.AccountUser.User.UserName</span></a>
+                            </li>
+                            <li id="userLogout" class="">
+                                <a rel="nofollow" class="login-button" href="@Url.Action("LogOut","Home")">
+                                    <span>Log Out</span>
+                                </a>
                             </li>
                         </ul>
                     </nav>

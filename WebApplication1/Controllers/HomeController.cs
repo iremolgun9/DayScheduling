@@ -26,26 +26,10 @@ namespace WebApplication1.Controllers
             {
                 Session.Add("Account", "0");
             }
-            //else
-            //{.
-            //    Session["Account"] = "0";
-            //}
-            return View();
-        }
-        public ActionResult MainPage()
-        {
-            return View();
-        }
-        public ActionResult viewPlan()        
+            else if (Session["Account"].ToString() == "1")
             {
-                return View();
+                return RedirectToAction("UserPage","Home"); // Loginse Userpage'e git
             }
-            public ActionResult Places()
-        {
-            return View();
-        }
-        public ActionResult PlaceDetail()
-        {
             return View();
         }
         [DSAuthorize]
@@ -55,9 +39,11 @@ namespace WebApplication1.Controllers
             model.PlanBlockList = bllPlan.GetPlanBlockList(AccountUser.Account.AccountID,true);
             return View(model);
         }
-        public ActionResult GetPlace()
+        public ActionResult LogOut()
         {
-            return View();
+            AccountUser.isLogined = false;
+            Session.Remove("Account");
+            return RedirectToAction("Index","Home");
         }
     }
     }

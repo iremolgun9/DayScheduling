@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DayScheduling.BLL.BLLAccount">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIEAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>BLLAccount.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DayScheduling.BLL.BLLActivity">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CIgABAAAACAAACEAAAAAAAAgAIQAAAAAAAAAENAkAAA=</HashCode>
+      <FileName>BLLActivity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DayScheduling.BLL.BLLPlan">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAIAABAAAAAAgAAAACIAEACAAQAAACAAAABAAAA=</HashCode>
+      <FileName>BLLPlan.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DayScheduling.Data.Account">
+    <Position X="4.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DayScheduling.Data.Activity">
+    <Position X="8" Y="8.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DayScheduling.Data.DALAccount">
+    <Position X="4.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DayScheduling.Data.DALActivity">
+    <Position X="8" Y="6.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DayScheduling.Data.DALPlace">
+    <Position X="9.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DayScheduling.Data.DALPlaceType">
+    <Position X="2.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DayScheduling.Data.DALPlan">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DayScheduling.Data.DALUser">
+    <Position X="6.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DayScheduling.Data.DaySchedulingModelDataModels">
+    <Position X="2.25" Y="12" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DayScheduling.Data.Place">
+    <Position X="9.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DayScheduling.Data.PlaceType">
+    <Position X="2.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DayScheduling.Data.Plan">
+    <Position X="0.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DayScheduling.Data.User">
+    <Position X="6.25" Y="8" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DayScheduling.Entities.Account.AccountUser">
+    <Position X="12.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DayScheduling.Entities.Activity.vmPartialActivity">
+    <Position X="12.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DayScheduling.Entities.Login.LoginViewModel">
+    <Position X="14" Y="0.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DayScheduling.Entities.Plan.vmDayByDayPlan">
+    <Position X="19.5" Y="2" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DayScheduling.Entities.Plan.vmPlanCriteria">
+    <Position X="12.25" Y="9" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DayScheduling.Entities.Plan.pmPlanCriteria">
+    <Position X="17.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DayScheduling.Entities.Plan.vmPlaceDetail">
+    <Position X="15.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DayScheduling.Entities.Plan.pmPlaceDetail">
+    <Position X="15.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DayScheduling.Entities.Plan.pmUpdateActivity">
+    <Position X="12.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DayScheduling.Entities.Plan.vmPlanBlock">
+    <Position X="17.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DayScheduling.Entities.Plan.vmUserPage">
+    <Position X="14" Y="7.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DayScheduling.Entities.Plan.vmMyPlans">
+    <Position X="14" Y="5.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GeoWeb.DirectionLatLong">
+    <Position X="6.5" Y="1" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GeoWeb.LocationManager">
+    <Position X="6.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

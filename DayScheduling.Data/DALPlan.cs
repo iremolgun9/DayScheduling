@@ -27,7 +27,7 @@ namespace DayScheduling.Data
 
         public int GetLastPlanID()
         {
-            string query = @"SELECT TOP 1 PlanID FROM PLANS ORDER BY PlanID DESC"; //cilem.akcay@hotmail.com
+            string query = @"SELECT TOP 1 PlanID FROM PLANS ORDER BY PlanID DESC";
             var res = Models.Database.SqlQuery<int>(query);
             int id = res.FirstOrDefault();
             return id;

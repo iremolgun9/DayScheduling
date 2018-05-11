@@ -45,6 +45,7 @@ namespace WebApplication1.Controllers
             }
             return View(Model);
         }
+
         public ActionResult DeletePlan(int PlanID, bool userpage)
         {
             bllplan.DeletePlan(PlanID);
@@ -80,11 +81,11 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
-        public ActionResult ChangeActivity(int ActivityID,int BudgetInfo, int NumOfFriends, string PlaceType, int ProvinceID, string Popularity)
+        public ActionResult ChangeActivity(int ActivityID,int BudgetInfo, int NumOfFriends, string PlaceType, int ProvinceID, string Popularity, string rate)
         {
             //bllact.DeleteActivity(int.Parse(param.updatePlaceID));
             vmPartialActivity existAct =  bllact.GetExistActivity(ActivityID);
-            vmPartialActivity newAct =  bllact.GetActivitytoChange(BudgetInfo,NumOfFriends,PlaceType,ProvinceID,Popularity,existAct.StartTime);
+            vmPartialActivity newAct =  bllact.GetActivitytoChange(BudgetInfo,NumOfFriends,PlaceType,ProvinceID,Popularity,existAct.StartTime, rate);
             var res = new {activityID= newAct.ActivityID, PlaceID = newAct.place.PlaceID, PlaceName = newAct.place.PlaceName, PlaceRate = newAct.place.PlaceRate, Activitytype = newAct.ActivityPlaceType };
             return Json(res, JsonRequestBehavior.AllowGet);
         }
@@ -103,6 +104,20 @@ namespace WebApplication1.Controllers
         {
             vmMyPlans model = new vmMyPlans();
             model.PlanBlockList = bllplan.GetPlanBlockList(AccountUser.Account.AccountID, false);
+            return View(model);
+        }
+
+        public ActionResult PlaceLocation(string PlaceLat, string PlaceLong)
+        {
+            vmPlaceLocation model = new vmPlaceLocation();
+            model.PlaceLat = PlaceLat;
+            model.PlaceLong = PlaceLong;
+            return View(model);
+        }
+
+        public ActionResult PlanDirections(string PlanID)
+        {
+            vmDayByDayPlan model =  bllplan.GetExistPlan(int.Parse(PlanID));
             return View(model);
         }
 
