@@ -131,6 +131,7 @@ namespace DayScheduling.Entities.Plan
         public List<string> categoryGroupNames { get; set; }
         public string FoodCategory { get; set; }
         public string AlcoholCategory { get; set; }
+        public string RateDecision { get; set; }
     }
     public class vmPlaceDetail
     {
@@ -182,5 +183,10 @@ namespace DayScheduling.Entities.Plan
     public class vmMyPlans
     {
         public List<vmPlanBlock> PlanBlockList { get; set; }
+    }
+    public class vmPlaceLocation
+    {
+        public string PlaceLat { get; set; }
+        public string PlaceLong { get; set; }
     }
 }

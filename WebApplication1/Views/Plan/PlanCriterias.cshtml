@@ -166,26 +166,16 @@
                             <a rel="nofollow" href="~/Plan/DayByDay">
                                 <span class="name">Profile</span>
                             </a>
-                            <div class="hidden">
-                                <div id="userDropdown">
-                                    <ul>
-                                        <li class="logout-button">Log out</li>
-                                    </ul>
-                                </div>
-                                <form id="logoutForm" action="https://www.inspirock.com/logout" method="POST">
-                                    <div>
-                                        <input type="hidden" name="_csrf" value="0ff48de0-945c-4ba5-905f-a29be48a8e39" />
-                                    </div>
-                                </form>
-                            </div>
                         </li>
                         <li id="userLogin" class="">
                             <span>@DayScheduling.Entities.Account.AccountUser.User.UserName</span>
                         </li>
-                        <li class="vertical-line"></li>
-                        <li id="language" data-browser-lang-code="en"
-                        <li id="currency" data-dropdown-url="/currencyOptions">
 
+                        <li class="vertical-line"></li>
+                        <li id="userLogout" class="">
+                            <a rel="nofollow" class="login-button" href="@Url.Action("LogOut","Home")">
+                                <span>Log Out</span>
+                            </a>
                         </li>
 
                     </ul>
@@ -223,8 +213,6 @@
                                         </div>
                                     </div>
                                     <div class="dates clearfix">
-                                        @*@Html.TextBox("PlanBeginTime", "",new { @class="flat", placeholder = "Begin Date Time" })
-                                            @Html.TextBox("PlanEndTime", "", new { @class = "flat", placeholder = "End Date Time" })*@
                                         @Html.TextBox("BudgetInfo", "", new { @class = "flat", placeholder = "Budget" })
                                         <br /><br />
                                         @Html.TextBox("NumberOfFriends", "", new { @class = "flat", placeholder = "Number Of Friends" })
@@ -233,7 +221,6 @@
                                     <div class="step-content">
                                         <div class="style clearfix">
                                             <div class="column3"><input type="radio" id="newplan-stylePopular" class="stylePopular flat" name="style" value="1" checked /><label title="Popular" for="newplan-stylePopular">Popular</label></div>
-                                            <div class="column3"><input type="radio" id="newplan-styleBalanced" class="styleBlanaced flat" name="style" value="2" /><label title="Balanced" for="newplan-styleBalanced">Balanced</label></div>
                                             <div class="column3"><input type="radio" id="newplan-styleHiddenGems" class="styleHiddenGems flat" name="style" value="3" /><label title="Hidden gems" for="newplan-styleHiddenGems">Hidden gems</label></div>
                                         </div>
                                         <div class="interests">
@@ -242,11 +229,18 @@
                                             <div class="column3"><input type="checkbox" id="newplan-interestUnwind" class="interest interestUnwind flat" name="categoryGroupNames" value="unwind" /><label title="Relaxing" for="newplan-interestUnwind">Relaxing</label></div>
                                             <div class="column3"><input type="checkbox" id="newplan-interestFun" class="interest interestRomantic flat" name="categoryGroupNames" value="fun" /><label title="Fun" for="newplan-interestFun">Fun</label></div>
                                             <div class="column3"><input type="checkbox" id="newplan-category10" class="flat" name="categoryGroupNames" value="Beaches" /><label title="Beaches" for="newplan-category10">Beaches</label></div>
-                                            <div class="column3"><input type="checkbox" id="newplan-category26" class="flat" name="categoryGroupNames" value="Historic Sites" /><label title="Historic sites" for="newplan-category26">Historic sites</label></div>
                                             <div class="column3"><input type="checkbox" id="newplan-category4" class="flat" name="categoryGroupNames" value="Shopping" /><label title="Shopping" for="newplan-category4">Shopping</label></div>
                                             <div class="column3"><input type="checkbox" id="newplan-category19" class="flat" name="categoryGroupNames" value="Generic" /><label title="Generic" for="newplan-category19">Generic</label></div>
                                         </div>
                                     </div>
+                                    <div class="section-title more-options-btn expandable">Do you want suggest activity for rating?<span class="optional"> (optional)</span></div>
+                                    <div id="ratediv" class="step-content">
+                                        <div class="interests">
+                                            <div class="column3">
+                                                <div class="column3"><input type="checkbox" id="rateDecision" class="flat" name="RateDecision" value="RateDecision" /><label title="Rate" for="rateDecision">Rate Decision</label></div>
+                                            </div>
+                                        </div>
+                                   </div>
                                     <div class="section-title more-options-btn expandable">Do you want food or drink in your plan?<span class="optional"> (optional)</span><i id="arrow" class="arrow fa fa-angle-down"></i></div>
                                     <div id="fooddiv" class="step-content">
                                         <div class="interests">
@@ -332,6 +326,7 @@
     </div>
 
 <script type="text/javascript">
+
 
             /* <![CDATA[ */
             var google_conversion_id = 1035570068;

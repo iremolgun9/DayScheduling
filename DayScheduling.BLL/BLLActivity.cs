@@ -58,7 +58,7 @@ namespace DayScheduling.BLL
             return act;
         }
 
-        public vmPartialActivity GetActivitytoChange(int BudgetInfo, int NumOfFriends, string PlaceType, int ProvinceID, string Popularity, TimeSpan OldActivityStartTime)
+        public vmPartialActivity GetActivitytoChange(int BudgetInfo, int NumOfFriends, string PlaceType, int ProvinceID, string Popularity, TimeSpan OldActivityStartTime, string rate)
         {
             vmPartialActivity activity = new vmPartialActivity();
             pmPlanCriteria param = new pmPlanCriteria();
@@ -132,7 +132,7 @@ namespace DayScheduling.BLL
         public vmPartialActivity getBreakfastActivity(pmPlanCriteria param, TimeSpan currentTime, string type)
         {
             vmPartialActivity breakfastActivity = new vmPartialActivity();
-            Place placeBreakfast = DALPlace.getBreakfastPlace(param.ProvinceId, param.BudgetInfo, param.style, param.NumberOfFriends);
+            Place placeBreakfast = DALPlace.getBreakfastPlace(param.ProvinceId, param.BudgetInfo, param.style, param.NumberOfFriends, param.RateDecision);
             if (placeBreakfast != null)
             {
                 breakfastActivity.place = placeBreakfast;
@@ -149,27 +149,27 @@ namespace DayScheduling.BLL
             Place foodPlace = new Place();
             if (foodType == "3")
             {
-                foodPlace = DALPlace.getRestaurantPlace(param.ProvinceId, param.BudgetInfo, param.style, param.NumberOfFriends);
+                foodPlace = DALPlace.getRestaurantPlace(param.ProvinceId, param.BudgetInfo, param.style, param.NumberOfFriends, param.RateDecision);
             }
             if (foodType == "11")
             {
-                foodPlace = DALPlace.getFastFoodPlace(param.ProvinceId, param.BudgetInfo, param.style, param.NumberOfFriends);
+                foodPlace = DALPlace.getFastFoodPlace(param.ProvinceId, param.BudgetInfo, param.style, param.NumberOfFriends, param.RateDecision);
             }
             else if (foodType == "12")
             {
-                foodPlace = DALPlace.getMeatChickenPlace(param.ProvinceId, param.BudgetInfo, param.style, param.NumberOfFriends);
+                foodPlace = DALPlace.getMeatChickenPlace(param.ProvinceId, param.BudgetInfo, param.style, param.NumberOfFriends, param.RateDecision);
             }
             if (foodType == "13")
             {
-                foodPlace = DALPlace.getSeaFoodPlace(param.ProvinceId, param.BudgetInfo, param.style, param.NumberOfFriends);
+                foodPlace = DALPlace.getSeaFoodPlace(param.ProvinceId, param.BudgetInfo, param.style, param.NumberOfFriends, param.RateDecision);
             }
             if (foodType == "15")
             {
-                foodPlace = DALPlace.getHomemadePlace(param.ProvinceId, param.BudgetInfo, param.style, param.NumberOfFriends);
+                foodPlace = DALPlace.getHomemadePlace(param.ProvinceId, param.BudgetInfo, param.style, param.NumberOfFriends, param.RateDecision);
             }
             if (foodType == "30")
             {
-                foodPlace = DALPlace.getDesertPlace(param.ProvinceId, param.BudgetInfo, param.style, param.NumberOfFriends);
+                foodPlace = DALPlace.getDesertPlace(param.ProvinceId, param.BudgetInfo, param.style, param.NumberOfFriends, param.RateDecision);
             }
             if (foodPlace != null)
             {
@@ -186,15 +186,15 @@ namespace DayScheduling.BLL
             Place alcoholPlace = new Place();
             if (Alcoholtype == "40")
             {
-                alcoholPlace = DALPlace.getTavernPlace(param.ProvinceId, param.BudgetInfo, param.style, param.NumberOfFriends);
+                alcoholPlace = DALPlace.getTavernPlace(param.ProvinceId, param.BudgetInfo, param.style, param.NumberOfFriends, param.RateDecision);
             }
             if (Alcoholtype == "50")
             {
-                alcoholPlace = DALPlace.getBarPlace(param.ProvinceId, param.BudgetInfo, param.style, param.NumberOfFriends);
+                alcoholPlace = DALPlace.getBarPlace(param.ProvinceId, param.BudgetInfo, param.style, param.NumberOfFriends, param.RateDecision);
             }
             else if (Alcoholtype == "60")
             {
-                alcoholPlace = DALPlace.getClubPlace(param.ProvinceId, param.BudgetInfo, param.style, param.NumberOfFriends);
+                alcoholPlace = DALPlace.getClubPlace(param.ProvinceId, param.BudgetInfo, param.style, param.NumberOfFriends, param.RateDecision);
             }
             if (alcoholPlace != null)
             {
@@ -208,7 +208,7 @@ namespace DayScheduling.BLL
         public vmPartialActivity getCulturelActivity(pmPlanCriteria param, string type)
         {
             vmPartialActivity culturelActivity = new vmPartialActivity();
-            Place placeCulture = DALPlace.getCulturelPlace(param.ProvinceId);
+            Place placeCulture = DALPlace.getCulturelPlace(param.ProvinceId, param.RateDecision);
             if (placeCulture != null)
             {
                 culturelActivity.place = placeCulture;
@@ -221,7 +221,7 @@ namespace DayScheduling.BLL
         public vmPartialActivity getShoppingActivity(pmPlanCriteria param, string type)
         {
             vmPartialActivity shoppingActivity = new vmPartialActivity();
-            Place placeShopping = DALPlace.getShoppingPlace(param.ProvinceId);
+            Place placeShopping = DALPlace.getShoppingPlace(param.ProvinceId, param.RateDecision);
             if (placeShopping != null)
             {
                 shoppingActivity.place = placeShopping;
@@ -231,22 +231,22 @@ namespace DayScheduling.BLL
             return null;
         }
 
-        public vmPartialActivity getHistoricSitesActivity(pmPlanCriteria param, string type)
-        {
-            vmPartialActivity historicSitesActivity = new vmPartialActivity();
-            Place placeHistoricSite = DALPlace.getHistoricSites(param.ProvinceId);
-            if (placeHistoricSite != null)
-            {
-                historicSitesActivity.place = placeHistoricSite;
-                historicSitesActivity.ActivityPlaceType = type;
-                return historicSitesActivity;
-            }
-            return null;
-        }
+        //public vmPartialActivity getHistoricSitesActivity(pmPlanCriteria param, string type)
+        //{
+        //    vmPartialActivity historicSitesActivity = new vmPartialActivity();
+        //    Place placeHistoricSite = DALPlace.getHistoricSites(param.ProvinceId);
+        //    if (placeHistoricSite != null)
+        //    {
+        //        historicSitesActivity.place = placeHistoricSite;
+        //        historicSitesActivity.ActivityPlaceType = type;
+        //        return historicSitesActivity;
+        //    }
+        //    return null;
+        //}
         public vmPartialActivity getFunActivity(pmPlanCriteria param, string type)
         {
             vmPartialActivity FunActivity = new vmPartialActivity();
-            Place placeFun = DALPlace.getFunPlace(param.ProvinceId, param.BudgetInfo, param.style, param.NumberOfFriends);
+            Place placeFun = DALPlace.getFunPlace(param.ProvinceId, param.BudgetInfo, param.style, param.NumberOfFriends, param.RateDecision);
             if (placeFun != null)
             {
                 FunActivity.place = placeFun;
@@ -258,7 +258,7 @@ namespace DayScheduling.BLL
         public vmPartialActivity getBeachActivity(pmPlanCriteria param, string type)
         {
             vmPartialActivity BeachActivity = new vmPartialActivity();
-            Place placeBeach = DALPlace.getBeachPlace(param.ProvinceId);
+            Place placeBeach = DALPlace.getBeachPlace(param.ProvinceId, param.RateDecision);
             if (placeBeach != null)
             {
                 BeachActivity.place = placeBeach;
@@ -270,7 +270,7 @@ namespace DayScheduling.BLL
         public vmPartialActivity getRelaxingActivity(pmPlanCriteria param, string type)
         {
             vmPartialActivity RelaxingActivity = new vmPartialActivity();
-            Place placeRelaxing = DALPlace.getRelaxingPlace(param.ProvinceId);
+            Place placeRelaxing = DALPlace.getRelaxingPlace(param.ProvinceId, param.RateDecision);
             if (placeRelaxing != null)
             {
                 RelaxingActivity.place = placeRelaxing;
@@ -282,7 +282,7 @@ namespace DayScheduling.BLL
         public vmPartialActivity getOutdoorActivity(pmPlanCriteria param, string type)
         {
             vmPartialActivity OutdoorActivity = new vmPartialActivity();
-            Place placeOutdoor = DALPlace.getOutdoorPlace(param.ProvinceId);
+            Place placeOutdoor = DALPlace.getOutdoorPlace(param.ProvinceId, param.RateDecision);
             if (placeOutdoor != null)
             {
                 OutdoorActivity.place = placeOutdoor;

@@ -27,6 +27,15 @@ namespace DayScheduling.BLL
         public int AddAccountUser(string UserSurname, string UserName, string Gender, DateTime DOB, string email, string Phone, string Address, string Job, string Password, string AccountType)
         {
             int result = dalacc.Add(UserSurname,UserName,Gender,DOB,email,Phone,Address,Job,Password,AccountType);
+            Account acc = dalacc.LoginIsSuccess(email, Password);
+            if (acc != null)
+            {
+                AccountUser.Account = acc;
+                AccountUser.User = daluser.Get(acc.UserID);
+                AccountUser.isLogined = true;
+                if (AccountUser.isLogined)
+                    result = 2;
+            }
             return result;
         }
     }

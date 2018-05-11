@@ -53,6 +53,14 @@ namespace WebApplication1.Controllers
             var resFail = new { Success = "False", Message = "EMAIL IS ALREADY TAKEN.", TargetUrl = "" };
             if (bllAcc.AddAccountUser(UserSurname, UserName, Gender, DOB, Email, Phone, Address, Job, Password, AccountType) == 2)
             {
+                if (Session["Account"] != null)
+                {
+                    Session.Add("Account", "1");
+                }
+                else
+                {
+                    Session["Account"] = "1";
+                }
                 return Json(resSuccess, JsonRequestBehavior.AllowGet);
             }
             return Json(resFail, JsonRequestBehavior.AllowGet);
