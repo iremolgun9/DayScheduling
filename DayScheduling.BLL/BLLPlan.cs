@@ -550,9 +550,7 @@ namespace DayScheduling.BLL
             newPlan.PlanDate = DateTime.Now;
             newPlan.PlanPopularity = int.Parse(model.Popularity);
             dalplan.RecordPlan(newPlan.PlanName,newPlan.PlanDate,newPlan.PlanPopularity,model.ProvinceID,AccountUser.Account.AccountID);
-            model.PlanID = dalplan.GetLastPlanID();
-            //newPlan.PlanComplete
-            //newPlan.PlanType             
+            model.PlanID = dalplan.GetLastPlanID();         
         }
 
         public List<vmPlanBlock> GetPlanBlockList(int AccountID, bool userpage)
